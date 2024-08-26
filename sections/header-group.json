@@ -1,0 +1,149 @@
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "header": {
+      "type": "header",
+      "blocks": {
+        "600eb2e4-0fa2-4e23-aaf8-7f1f0762a91a": {
+          "type": "mega_menu",
+          "disabled": true,
+          "settings": {
+            "menu_item": "Main",
+            "layout": "horizontal",
+            "submenu_style": "bold_heading",
+            "image_1": "shopify:\/\/shop_images\/3464-2309-max.jpg",
+            "image_heading_1": "тест",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_2": "shopify:\/\/shop_images\/00-00002502.jpg",
+            "image_heading_2": "",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "Main2",
+            "image_link_3": "",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": true,
+            "drawer_link_image": "show"
+          }
+        },
+        "f9b801a2-2310-40e7-aab4-711fbf08d03b": {
+          "type": "mega_menu",
+          "disabled": true,
+          "settings": {
+            "menu_item": "What's new",
+            "layout": "horizontal_center",
+            "submenu_style": "bold_heading",
+            "image_heading_1": "A1",
+            "image_link_1": "",
+            "image_text_color_1": "#ffffff",
+            "image_heading_2": "A2",
+            "image_link_2": "",
+            "image_text_color_2": "#ffffff",
+            "image_heading_3": "A3",
+            "image_link_3": "shopify:\/\/collections",
+            "image_text_color_3": "#ffffff",
+            "product": "",
+            "product_card_background": "",
+            "product_card_text_color": "",
+            "promo_content_layout": "grid",
+            "stretch_promo": false,
+            "drawer_link_image": "hide"
+          }
+        }
+      },
+      "block_order": [
+        "600eb2e4-0fa2-4e23-aaf8-7f1f0762a91a",
+        "f9b801a2-2310-40e7-aab4-711fbf08d03b"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "hide_on_scroll": false,
+        "logo": "shopify:\/\/shop_images\/MovaTex_logo.svg",
+        "logo_max_width": 120,
+        "logo_mobile_max_width": 100,
+        "menu": "main-menu",
+        "sidebar_menu": "main-menu",
+        "secondary_menu": "",
+        "menu_open_trigger": "hover",
+        "opening_from": "left",
+        "layout": "logo_center_navigation_inline",
+        "show_social_media": true,
+        "show_locale_selector": true,
+        "show_country_selector": false,
+        "show_country_flag": false,
+        "show_country_name": false,
+        "transparent_header_text_color": "#000000",
+        "reduce_padding": false,
+        "background_opacity": 100,
+        "background_blur_radius": 0
+      }
+    },
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "Останні надходження товару",
+            "url": "shopify:\/\/collections\/all"
+          }
+        },
+        "faa8f94d-c642-4a80-aa04-de72c87fbecb": {
+          "type": "message",
+          "settings": {
+            "text": "Лен",
+            "url": ""
+          }
+        },
+        "751a80e0-46ee-4cba-938e-90bcadf5b086": {
+          "type": "message",
+          "settings": {
+            "text": "Трикотаж",
+            "url": ""
+          }
+        },
+        "4f144f2b-47b4-43a1-824e-b86efe112852": {
+          "type": "message",
+          "settings": {
+            "text": "Футер",
+            "url": ""
+          }
+        },
+        "2d29accc-4412-4ceb-a917-f9a56b8a8e6d": {
+          "type": "message",
+          "settings": {
+            "text": "Коттон",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "message",
+        "faa8f94d-c642-4a80-aa04-de72c87fbecb",
+        "751a80e0-46ee-4cba-938e-90bcadf5b086",
+        "4f144f2b-47b4-43a1-824e-b86efe112852",
+        "2d29accc-4412-4ceb-a917-f9a56b8a8e6d"
+      ],
+      "disabled": true,
+      "settings": {
+        "enable_sticky": false,
+        "text_size": "text-xs",
+        "navigation_mode": "scrolling",
+        "scrolling_speed": 10,
+        "background": "#1a1a1a",
+        "background_gradient": "",
+        "text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "header",
+    "announcement-bar"
+  ]
+}

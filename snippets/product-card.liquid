@@ -1,0 +1,400 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+PRODUCT CARD COMPONENT
+----------------------------------------------------------------------------------------------------------------------
+
+This component is used in collection and featured collection to render a single product as a card
+
+********************************************
+Supported variables
+********************************************
+
+* product: the product to render
+* show_rating: show or not the rating. If nothing is set, the theme uses the default product card setting
+* show_vendor: show or not the vendor. If nothing is set, the theme uses the default product card setting
+* show_quick_buy: show or not the quick buy. If nothing is set, the theme uses the default product card setting
+* show_secondary_image: show or not the secondary image. If nothing is set, the theme uses the default product card setting
+* show_swatches: allow to force hiding swatches. If nothing is set, it will default to the default card strategy
+* stacked: indicate if the product is in stack mode
+* reveal: if set to true the item will be revealed in a stacked mode
+* background: the background to use for the product card (if none is passed then the one from the global setting is used)
+* text_color: the text color to use for the product card (if none is passed then the one from the global setting is used)
+* text_alignment: can be "center". If nothing is set, the theme uses the default product card setting
+{%- endcomment -%}
+
+
+{%- assign show_rating = show_rating | default: settings.show_product_rating, allow_false: true -%}
+{%- assign show_vendor = show_vendor | default: settings.show_vendor, allow_false: true -%}
+{%- assign show_quick_buy = show_quick_buy | default: settings.show_quick_buy, allow_false: true -%}
+{%- assign show_secondary_image = show_secondary_image | default: settings.show_secondary_image, allow_false: true -%}
+{%- assign text_alignment = text_alignment | default: settings.product_info_alignment -%}
+
+{%- if stacked and section.settings.products_per_row_mobile == '2' -%}
+  {%- assign mobile_reduced = true -%}
+{%- endif -%}
+
+{%- assign section_background = section.settings.background_gradient | default: section.settings.background | default: settings.background -%}
+{%- assign card_background = background | default: settings.product_card_background -%}
+{%- assign card_text_color = text_color | default: settings.product_card_text_color -%}
+
+{%- if section_background != 'rgba(0,0,0,0)' and card_background != 'rgba(0,0,0,0)' and section_background != card_background -%}
+  {%- assign card_class = 'product-card ' -%}
+{%- else -%}
+  {%- assign card_class = 'product-card product-card--blends ' -%}
+{%- endif -%}
+
+{%- if show_secondary_image and product.media.size > 1 -%}
+  {%- assign card_class = card_class | append: 'product-card--show-secondary-media' -%}
+{%- endif -%}
+{%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
+{%- comment -%}---------------- Error correct ----------------      
+old
+<product-card handle="{{ product.handle | escape }}" {% if reveal %}reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
+new
+<product-card handle="{{ product.handle | escape }}" {% if reveal %}data-reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
+{%- endcomment -%}
+<product-card handle="{{ product.handle | escape }}" {% if reveal %}data-reveal-js{% endif %} {% render 'surface', class: card_class, background: card_background, text_color: card_text_color %}>
+{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}  
+  {%- comment -%}
+  --------------------------------------------------------------------------------------------------------------------
+  PRODUCT BADGES
+  --------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  {%- if show_badges and product.media.size > 0 -%}
+    {%- render 'product-badges', product: product, class: 'product-card__badge-list' -%}
+  {%- endif -%}
+
+  {%- comment -%}
+  --------------------------------------------------------------------------------------------------------------------
+  PRODUCT MEDIA
+  --------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+{%- comment -%}---------------- SE20240000 STR SKU color collection filter ----------------{%- endcomment -%}  
+{% if collection != blank and collection.metafields.custom.color_sku_first_letter != blank %}
+  {% assign priority_vars = '' %}
+  {% assign priority_vars_arr = '' %}
+  {% for variant in product.variants %}
+    {% assign first_letter = variant.sku | slice: 2, 1 %}
+    {% if first_letter == collection.metafields.custom.color_sku_first_letter %}
+      {% assign priority_vars = priority_vars | append: variant.id | append: ',' %}
+    {% endif %}
+  {% endfor %}
+  {% assign priority_vars = priority_vars | join: ',' %}
+  {% assign priority_vars_arr = priority_vars | split: ',' %}
+  {% assign main_image = '' %}
+  {% if priority_vars_arr.size > 0 %}
+      {% for variant in product.variants %}
+        {% assign num_sku = priority_vars_arr[0] | times: 1 %}
+        {% if variant.id == num_sku %}
+          {% assign main_image = variant.image %}
+          {% assign next_variant_image_position = variant.featured_media.position | plus: 1 %}
+          {% assign second_image = product.media[next_variant_image_position] %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+  {% endif %}
+{% endif %}
+
+{%- comment -%}---------------- SE20240000 END SKU color collection filter ----------------{%- endcomment -%}
+
+
+
+  {%- if product.media.size > 0 -%}
+    <div class="product-card__figure">
+      
+      
+      <a href="{{ product.url }}" data-instant>
+        {%- capture sizes -%}
+          {%- if stacked -%}
+            (max-width: 699px) calc(100vw / {{ section.settings.products_per_row_mobile }} - 40px), (max-width: 1200px) calc(100vw / {{ 3 | at_most: section.settings.products_per_row_desktop }} - 64px), calc((100vw - 96px) / {{ section.settings.products_per_row_desktop }} - (24px / {{ section.settings.products_per_row_desktop }} * {{ section.settings.products_per_row_desktop | minus: 1 }}))
+          {%- else -%}
+            (max-width: 699px) 74vw, (max-width: 999px) 38vw, calc((100vw - 96px) / {{ section.settings.products_per_row_desktop }} - (24px / {{ section.settings.products_per_row_desktop }} * {{ section.settings.products_per_row_desktop | minus: 1 }}))
+          {%- endif -%}
+        {%- endcapture -%}
+
+        {%- capture main_image_classes -%}product-card__image product-card__image--primary {% if settings.product_image_aspect_ratio contains 'crop' %}object-fill-safe{% endif %} aspect-{{ settings.product_image_aspect_ratio | split: '_' | first }}{%- endcapture -%}
+
+{%- comment -%}---------------- SE20240000 STR SKU color collection filter ----------------{%- endcomment -%}
+        {% if main_image != blank %}
+          {{- main_image | image_url: width: main_image.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800', class: main_image_classes -}}
+        {% else %}
+        {{- product.featured_media | image_url: width: product.featured_media.width | image_tag: loading: 'lazy', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800', class: main_image_classes -}}
+        {% endif %}
+        {%- if show_secondary_image and product.media.size > 1 -%}
+          {% if second_image != blank %}
+            {% assign next_media = second_image %}
+          {% else %}
+          {%- assign next_media = product.media[product.featured_media.position] | default: product.media[1] -%}
+          {% endif %}
+{%- comment -%}---------------- SE20240000 END SKU color collection filter ----------------{%- endcomment -%}
+          
+          {{- next_media | image_url: width: next_media.width | image_tag: class: 'product-card__image product-card__image--secondary object-fill', loading: 'lazy', fetchpriority: 'low', sizes: sizes, widths: '200,300,400,500,600,700,800,1000,1200,1400,1600,1800' -}}
+        {%- endif -%}
+      </a>
+
+      {%- if show_quick_buy and product.available -%}
+        <div class="product-card__quick-buy">
+          {%- assign quick_add_label = 'product.general.quick_add' | t -%}
+
+          {%- if product.variants.size == 1 and product.selling_plan_groups.size == 0 -%}
+            {%- form 'product', product, is: 'product-form' -%}
+              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+              <div class="pointer-fine:hidden">
+                <button type="submit" is="custom-button" class="product-card__mobile-quick-buy-button" aria-label="{{ quick_add_label | escape }}">
+                  {%- render 'icon' with 'quick-buy-cart' -%}
+                </button>
+              </div>
+
+              <div class="pointer-coarse:hidden">
+                {%- render 'button', type: 'submit', content: quick_add_label -%}
+              </div>
+            {%- endform -%}
+          {%- else -%}
+            {%- capture quick_buy_id -%}quick-buy-{{ section.id }}-{{ product.id }}{%- endcapture -%}
+
+            <div class="pointer-fine:hidden">
+              <button type="button" aria-controls="{{ quick_buy_id }}" aria-expanded="false" aria-label="{{ quick_add_label | escape }}" is="custom-button" class="product-card__mobile-quick-buy-button">
+                {%- render 'icon' with 'quick-buy-cart' -%}
+              </button>
+            </div>
+
+            <div class="pointer-coarse:hidden">
+              {%- render 'button', content: quick_add_label, aria_controls: quick_buy_id -%}
+            </div>
+
+            <quick-buy-drawer id="{{ quick_buy_id }}" header-bordered open-from="bottom" handle="{{ product.handle }}" role="region" aria-live="polite" class="quick-buy-drawer drawer">
+              {%- comment -%}Quick buy content is filled on demand for performance reasons {%- endcomment -%}
+            </quick-buy-drawer>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  {%- comment -%}
+  --------------------------------------------------------------------------------------------------------------------
+  PRODUCT INFO
+  --------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  <div class="product-card__info {% if text_alignment == 'center' %}product-card__info--center{% endif %}">
+    {%- if show_vendor and product.vendor != blank -%}
+      {%- if show_rating and text_alignment != 'center' -%}
+        <div class="rating-with-text w-full">
+          {%- render 'vendor' with product.vendor, class: 'text-xs' -%}
+
+          {%- capture rating_class -%}{% if mobile_reduced %}hidden sm:flex{% endif %}{%- endcapture -%}
+          {%- render 'product-rating', product: product, class: rating_class, display_mode: settings.product_rating_mode -%}
+        </div>
+      {%- else -%}
+        {%- render 'vendor' with product.vendor, class: 'text-xs' -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    <div class="v-stack gap-0.5 w-full {% if text_alignment == 'center' %}justify-items-center{% endif %}">
+      {%- if show_rating and show_vendor == false or product.vendor == blank -%}
+        <div class="rating-with-text">
+          <span class="product-card__title"><a href="{{ product.url }}" class="bold" data-instant>{{ product.title }}</a></span>
+
+          {%- if text_alignment != 'center' -%}
+            {%- capture rating_class -%}{% if mobile_reduced %}hidden sm:flex{% endif %}{%- endcapture -%}
+            {%- render 'product-rating', product: product, class: rating_class, display_mode: settings.product_rating_mode -%}
+          {%- endif -%}
+        </div>
+      {%- else -%}
+        <span class="product-card__title"><a href="{{ product.url }}" class="bold" data-instant>{{ product.title }}</a></span>
+      {%- endif -%}
+
+      {%- render 'price-list', product: product, text_alignment: text_alignment -%}
+    </div>
+ 
+    {%- if show_rating and mobile_reduced or text_alignment == 'center' -%}
+      {%- capture rating_class -%}{% unless text_alignment == 'center' %}sm:hidden{% endunless %}{%- endcapture -%}
+      {%- render 'product-rating', product: product, class: rating_class, display_mode: settings.product_rating_mode -%}
+    {%- endif -%}
+
+{%- comment -%}--------------- SE20240522 STR ----------------{%- endcomment -%}
+{%- comment -%}------- Price for 1kg/m in collections --------{%- endcomment -%}      
+    <div>
+      {% for variant in product.variants %}
+        {% if product.selected_or_first_available_variant.id == variant.id %}
+          {% if variant.metafields.custom.price_wholesale_kg != blank %}
+            {% if shop.locale == 'uk' %}
+              <strong>Ціна за 1кг складає {{ variant.metafields.custom.price_wholesale_kg | money_format }}грн</strong>
+            {% elsif shop.locale == 'ru' %}
+              <strong>Цена за 1кг составит {{ variant.metafields.custom.price_wholesale_kg | money_format }}грн</strong>
+            {% elsif shop.locale == 'en' %}
+              <strong>Price for 1kg is UAH{{ variant.metafields.custom.price_wholesale_kg | money_format }}</strong>
+            {% else %}
+            {% endif %}
+          {% endif %}
+
+          {% if variant.metafields.custom.price_wholesale_m != blank %}
+            {% if shop.locale == 'uk' %}
+              <strong>Ціна за 1м складає {{ variant.metafields.custom.price_wholesale_m }}грн</strong>
+            {% elsif shop.locale == 'ru' %}
+              <strong>Цена за 1м составит {{ variant.metafields.custom.price_wholesale_m }}грн</strong>
+            {% elsif shop.locale == 'en' %}
+              <strong>Price for 1m is UAH{{ variant.metafields.custom.price_wholesale_m }}</strong>
+            {% else %}
+            {% endif %}
+          {% endif %} 
+          
+          {% if variant.metafields.custom.fabric_width != blank %}
+            <br>
+            {% if shop.locale == 'uk' %}
+              <small>ширина: {{ variant.metafields.custom.fabric_width }}см</small>
+            {% elsif shop.locale == 'ru' %}
+              <small>ширина: {{ variant.metafields.custom.fabric_width }}см</small>
+            {% elsif shop.locale == 'en' %}
+              <small>width: {{ variant.metafields.custom.fabric_width }}cm</small>
+            {% else %}
+            {% endif %}
+          {% endif %}
+          
+          {% if variant.metafields.custom.fabric_density != blank %}
+            
+            {% if shop.locale == 'uk' %}
+              <small>щільність: {{ variant.metafields.custom.fabric_density }}г/м<sup>2</sup></small>
+            {% elsif shop.locale == 'ru' %}
+              <small>плотность: {{ variant.metafields.custom.fabric_density }}г/м<sup>2</sup></small>
+            {% elsif shop.locale == 'en' %}
+              <small>density: {{ variant.metafields.custom.fabric_density }}g/m<sup>2</sup></small>
+            {% else %}
+            {% endif %}
+          {% endif %}
+
+
+   
+
+          
+        {% endif %}
+      {% endfor %}
+   </div>
+{%- comment -%}--------------- SE20240522 END ----------------{%- endcomment -%} 
+
+
+
+
+
+
+
+    
+    {%- if settings.product_color_display != 'hide' and show_swatches != false -%}
+      {%- assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
+
+      {%- for color_label in color_label_list -%}
+        {%- if product.options_by_name[color_label] != blank -%}
+          {%- assign product_option = product.options_by_name[color_label] -%}
+          {%- capture name -%}swatch-{{ section.id }}-{{ product.id }}-{{ product_option.position }}{%- endcapture -%}
+
+          <div class="product-card__aside">
+            {%- case settings.product_color_display -%}
+              {%- when 'count' -%}
+                <p class="product-card__color-count text-sm text-subdued">{{- 'product.general.available_colors_count' | t: count: product_option.values.size -}}</p>
+
+              {%- when 'swatch' -%}
+                <fieldset class="product-card__swatch-list h-stack {% if settings.color_swatch_style == 'rectangle' %}gap-2.5{% else %}gap-0.5{% endif %}" data-option-position="{{ product_option.position }}">
+                  {%- for option_value in product_option.values limit: 4 -%}
+                    {%- if forloop.first or product.selected_or_first_available_variant.matched and option_value == product_option.selected_value -%}
+                      {%- assign selected = true -%}
+                    {%- else -%}
+                      {% assign selected = false %}
+                    {%- endif -%}
+
+                    {%- render 'swatch', type: 'colors', value: option_value, name: name, size: 'sm', selected: selected -%}
+                  {%- endfor -%}
+
+                  {% if product_option.values.size > 4 %}
+                    <a href="{{ product.url }}" data-instant class="color-swatch__view-more {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %} text-xxs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
+                  {% endif %}
+                </fieldset>
+
+              {%- when 'variant' -%}
+                <fieldset class="product-card__variant-list" data-option-position="{{ product_option.position }}">
+                  {% if collection != blank and collection.metafields.custom.color_sku_first_letter != blank and priority_vars_arr.size > 0 %}
+
+                        {% assign existing_vars = '' %}
+                        {% for color_variant in priority_vars_arr %}
+                          {% if forloop.first %}
+                            {% assign initial_loop = true %}
+                          {% else %}
+                            {% assign initial_loop = false %}
+                          {% endif %}
+                          {% for variant in product.variants %}
+
+                            {% assign variant_name = variant.title | split: '/' | first %}
+                            {% assign variant_only_name = variant.title | split: '/' | first | remove_last: " " %}
+                            {% unless existing_vars contains variant_name %}
+                            {% assign num_sku = color_variant | times: 1 %}
+                            {% if variant.id == num_sku %}
+                              {% assign next_variant_image_position = variant.featured_media.position | plus: 1 %}
+                              {% assign second_image = product.media[next_variant_image_position] %}
+                              
+                              {%- render 'swatch', type: 'thumbnail', is_custom: true, image: variant.featured_media, second_image: second_image value: variant_only_name, name: name, size: 'sm', selected: initial_loop -%}
+                              {% assign existing_vars = existing_vars | append: variant_name %}
+                              {% break %}
+                            {% endif %}
+                            {% endunless %}
+                          {% endfor %}
+                        {% endfor %}
+                  {% else %}
+
+                  {%- for option_value in product_option.values limit: 4 -%}
+                    {%- assign variant_option = 'option' | append: product_option.position -%}
+                    {%- assign variant_for_value = product.variants | where: variant_option, option_value | first -%}
+
+                    
+                   
+
+                    {%- if forloop.first or variant_for_value.matched and option_value == product_option.selected_value -%}
+                      {%- assign selected = true -%}
+                    {%- else -%}
+                      {% assign selected = false %}
+                    {%- endif -%}
+
+                    {%- render 'swatch', type: 'thumbnail', image: variant_for_value.featured_media, value: option_value, name: name, size: 'sm', selected: selected -%}
+                  {%- endfor -%}
+                  {% endif %}
+
+                  {%- if product_option.values.size > 4 -%}
+                    <a href="{{ product.url }}" data-instant class="thumbnail-swatch__view-more text-xs text-subdued">+{{ product_option.values.size | minus: 4 }}</a>
+                  {%- endif -%}
+                </fieldset>
+              {%- endcase -%}
+          </div>
+
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+
+{%- render 'buy-buttons-sample', product: product, form_id: product_form_id, button_size: 'lg' -%}
+</div>
+<script>
+document.querySelectorAll('input.sr-only').forEach(inputVisible => {
+  inputVisible.addEventListener('click', function(e){
+    const productCard = e.target.closest("product-card");
+    productCard.querySelectorAll('input.sample-color').forEach(inputHidden => {
+      if (inputHidden.getAttribute('sample-color') == e.target.value) {
+         productCard.querySelector('form input.sample-color__button').value = inputHidden.getAttribute('sample-color-id');
+        if (inputHidden.getAttribute('sample-color-count') == 'false') {
+          productCard.querySelector('form .buy-buttons button[type="submit"]').setAttribute('disabled', '');
+          productCard.querySelector('form .buy-buttons button[type="submit"]').classList.add('button--subdued');
+        }
+        if (inputHidden.getAttribute('sample-color-count') == 'true') {
+          productCard.querySelector('form .buy-buttons button[type="submit"]').removeAttribute('disabled');
+          productCard.querySelector('form .buy-buttons button[type="submit"]').classList.remove('button--subdued');
+        }
+      }
+    });
+  }); 
+  if (inputVisible.hasAttribute('checked') == true) {
+    inputVisible.click()
+  }
+});
+</script>
+</product-card>

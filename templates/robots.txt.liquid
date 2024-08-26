@@ -1,0 +1,51 @@
+# we use Shopify as our ecommerce platform
+{%- comment -%}
+# Caution! Please read https://help.shopify.com/en/manual/promoting-marketing/seo/editing-robots-txt before proceeding to make changes to this file.
+{% endcomment %}
+{% for group in robots.default_groups %}
+  {{- group.user_agent -}}
+
+  {% for rule in group.rules %}
+{%- unless rule.directive == 'Disallow' and rule.value == '/collections/*+*' or 
+   rule.directive == 'Disallow' and rule.value == '/*/collections/*+*' or
+   rule.directive == 'Disallow' and rule.value == '/blogs/*+*' or
+   rule.directive == 'Disallow' and rule.value == '/*/blogs/*+*'
+  -%}
+  {{- rule -}}
+{%- endunless -%}
+
+  {% endfor %}
+  {%- if group.user_agent.value == '*' -%}
+{{ 'Disallow: /*?q=*' }}
+{{ 'Disallow: */collections/*filter*' }}
+{{ 'Disallow: *?filter.v.availability*' }}
+{{ 'Disallow: *?filter.v.price.gte*' }}
+{{ 'Disallow: *?filter.p.vendor*' }}
+{{ 'Disallow: */search?q=*' }}
+{{ 'Disallow: */collections/frontpage' }}
+{{ 'Disallow: */blogs/our-world' }} 
+{{ 'Disallow: */pages/test-size-chart' }} 
+{{ 'Disallow: */collections/by_color' }} 
+{{ 'Disallow: */collections/by_appointment' }} 
+{{ 'Disallow: */collections/by_type_of_fabric' }} 
+{{ 'Disallow: */collections/custom-all' }} 
+{{ 'Disallow: */cdn/shop/files/*' }}
+{{ 'Disallow: */cart' }}    
+{{ 'Disallow: */account' }} 
+{{ 'Disallow: */search' }} 
+{{ 'Disallow: */favicon.ico' }} 
+{{ 'Disallow: */search?*' }}
+    
+    {{ '' }}
+
+
+    
+  {%- endif -%}
+  
+  {%- if group.sitemap != blank -%}
+    {{ group.sitemap }}
+  {%- endif -%}
+{% endfor %}
+
+
+

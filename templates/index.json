@@ -1,0 +1,763 @@
+{
+  "sections": {
+    "slideshow_KrrWHk": {
+      "type": "slideshow",
+      "blocks": {
+        "image_f9W6qL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/60_-2.png",
+            "mobile_image": "shopify:\/\/shop_images\/60_-2.png",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "Гарячі знижки літа",
+            "title": "60%",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "shopify:\/\/collections\/promo_offers",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30,
+            "background": "",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_f9W6qL"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "image_size": "auto",
+        "controls_type": "none",
+        "transition_type": "fade_with_text",
+        "autoplay": false,
+        "cycle_speed": 6,
+        "background": "#F2F2F2",
+        "background_gradient": ""
+      }
+    },
+    "custom_liquid_VRA7dq": {
+      "type": "custom-liquid",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": true,
+        "remove_horizontal_spacing": true,
+        "liquid": "<div class=\"divider\"><\/div>\n\n<style>\n.divider {\n    border-bottom: 4px solid white; \/* Adjust thickness and color *\/\n    margin: 0px 0; \/* Adjust spacing above and below the line *\/\n}\n<\/style>",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "f4e5754f-1227-4871-a494-0b87b6918a9e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/slim_french_3200_1000.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/slim_french_1200_429.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "тканини для ваших мрій",
+            "title": "FRENCH TERRY",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "shopify:\/\/products\/3-thread_diagonal_knit_french_terry",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "#ffffff",
+            "background_gradient": ""
+          }
+        },
+        "slide-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/slim_linen_3200_1000.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/slim_linen_1200_429.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "100% гарний вибір",
+            "title": "LINEN ORGANIC",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "shopify:\/\/products\/linen_organic_100-_801",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "#ffffff",
+            "background_gradient": ""
+          }
+        },
+        "10e0b502-b72d-4bef-bcfb-04caa6885e28": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/slim_thermo_lycra_3200_1000.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/slim_thermo_lycra_1200_429.jpg",
+            "content_max_width": 780,
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "subheading": "яскравий вибір",
+            "title": "THERMO LYCRA",
+            "heading_tag": "h0",
+            "button_text": "",
+            "button_link": "shopify:\/\/products\/lucra_rib_knit",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0,
+            "background": "#ffffff",
+            "background_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "f4e5754f-1227-4871-a494-0b87b6918a9e",
+        "slide-1",
+        "10e0b502-b72d-4bef-bcfb-04caa6885e28"
+      ],
+      "settings": {
+        "full_width": true,
+        "allow_transparent_header": false,
+        "image_size": "auto",
+        "controls_type": "outline_arrows",
+        "transition_type": "fade_with_text",
+        "autoplay": true,
+        "cycle_speed": 6,
+        "background": "#ffffff",
+        "background_gradient": "linear-gradient(60deg, rgba(56, 61, 64, 1), rgba(23, 29, 33, 1) 98%)"
+      }
+    },
+    "featured_collection_bBGkFT": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "knitwear",
+        "products": [
+          "knit_fabric_futer_3-thread_diagonal_regular_450_g-m",
+          "knit_fabric_futer_3-thread_with_fleece_brush_regular_340_g-m",
+          "knit_fabric_single_jersey_silky_finish_30-2_hm_235",
+          "3-thread_diagonal_knit_french_terry_silk_finish"
+        ],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": true,
+        "products_count": 4,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "shopify:\/\/collections",
+        "link_text": "Переглянути всі",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "collection-list": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-3": {
+          "type": "collection",
+          "settings": {
+            "collection": "by_type_of_fabric",
+            "image": "shopify:\/\/shop_images\/download_44c9d117-0111-4456-b9dd-dbf93835c338.jpg",
+            "subheading": "",
+            "title": "за типом тканини",
+            "url": "shopify:\/\/collections\/by_type_of_fabric",
+            "heading_tag": "h2",
+            "text_position": "place-self-center text-center",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "by_appointment",
+            "subheading": "",
+            "title": "за призначенням",
+            "url": "shopify:\/\/collections\/by_appointment",
+            "heading_tag": "h2",
+            "text_position": "place-self-center text-center",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        },
+        "collection-2": {
+          "type": "collection",
+          "settings": {
+            "collection": "by_color",
+            "image": "shopify:\/\/shop_images\/download_42f371a2-9ff0-4ed7-b483-40e70b649fa9.jpg",
+            "subheading": "",
+            "title": "за кольором",
+            "url": "shopify:\/\/collections\/by_color",
+            "heading_tag": "h2",
+            "text_position": "place-self-center text-center",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 30
+          }
+        }
+      },
+      "block_order": [
+        "collection-3",
+        "collection-1",
+        "collection-2"
+      ],
+      "settings": {
+        "full_width": true,
+        "stack_collections": false,
+        "collections_per_row": 3,
+        "show_progress_bar": false,
+        "subheading": "",
+        "title": "ОБЕРИ СВОЮ КОЛЕКЦІЮ",
+        "content": "",
+        "link_url": "shopify:\/\/collections",
+        "link_text": "Переглянути всі",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "23df1a5f-8985-4a14-8345-c964c3a120c4": {
+      "type": "image-link-blocks-3",
+      "blocks": {
+        "template--21397255029027__23df1a5f-8985-4a14-8345-c964c3a120c4-item-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/download_75bc17ff-9c01-47f5-a9b2-fd65b9116bd0.jpg",
+            "stretch_image": true,
+            "link_text": "Трикотаж 3х-нитка діагональ FRENCH TERRY",
+            "link_url": "shopify:\/\/products\/3-thread_diagonal_knit_french_terry",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--21397255029027__23df1a5f-8985-4a14-8345-c964c3a120c4-item-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/download_3ba0f38f-6210-4da3-8a25-24787887ff4f.jpg",
+            "stretch_image": true,
+            "link_text": "Кулірна гладь 602",
+            "link_url": "shopify:\/\/products\/jersey_knit_602",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--21397255029027__23df1a5f-8985-4a14-8345-c964c3a120c4-item-3": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/download_d20c3eae-0a03-441c-9339-b67a7eab912d.jpg",
+            "stretch_image": true,
+            "link_text": "Трикотаж рибана OIL WASH №1",
+            "link_url": "shopify:\/\/products\/knit_fabric_ribana_oil_wash_-1",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--21397255029027__23df1a5f-8985-4a14-8345-c964c3a120c4-item-1",
+        "template--21397255029027__23df1a5f-8985-4a14-8345-c964c3a120c4-item-2",
+        "template--21397255029027__23df1a5f-8985-4a14-8345-c964c3a120c4-item-3"
+      ],
+      "settings": {
+        "full_width": false,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "image-link-blocks": {
+      "type": "image-link-blocks",
+      "blocks": {
+        "1664424046b00c932c-0": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "Тканина 1",
+            "link_url": "shopify:\/\/products\/biflex_brilliant",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 49
+          }
+        },
+        "1664424046b00c932c-1": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "Тканина 2",
+            "link_url": "shopify:\/\/products\/biflex-матт-2",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 49
+          }
+        },
+        "1664424046b00c932c-2": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "Ткананина 3",
+            "link_url": "shopify:\/\/products\/вискоза-sky",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 49
+          }
+        },
+        "1664424046b00c932c-3": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "stretch_image": true,
+            "link_text": "Тканина 4",
+            "link_url": "shopify:\/\/products\/biflex-print-tropical",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 49
+          }
+        },
+        "e4a0ef18-1856-4ddd-83d8-871a60d7acac": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "stretch_image": true,
+            "link_text": "Тканина 5",
+            "link_url": "shopify:\/\/products\/biflex-print-animal-2",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 49
+          }
+        },
+        "5891e7fd-cbed-428e-830f-1d5f069159c1": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "stretch_image": true,
+            "link_text": "Тканина 6",
+            "link_url": "shopify:\/\/products\/вискоза-sky",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 49
+          }
+        },
+        "c409e7c9-9228-472d-91fa-4a47fbcf5d49": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "stretch_image": true,
+            "link_text": "Тканина 7",
+            "link_url": "shopify:\/\/products\/stretch-satin",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 49
+          }
+        },
+        "3f97d7c6-d9f8-4a18-bbd1-925940eff77d": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "stretch_image": true,
+            "link_text": "Тканина 8",
+            "link_url": "shopify:\/\/products\/biflex-print-abstract",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 49
+          }
+        }
+      },
+      "block_order": [
+        "1664424046b00c932c-0",
+        "1664424046b00c932c-1",
+        "1664424046b00c932c-2",
+        "1664424046b00c932c-3",
+        "e4a0ef18-1856-4ddd-83d8-871a60d7acac",
+        "5891e7fd-cbed-428e-830f-1d5f069159c1",
+        "c409e7c9-9228-472d-91fa-4a47fbcf5d49",
+        "3f97d7c6-d9f8-4a18-bbd1-925940eff77d"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "block_size": "small",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "08019757-b2b0-4f7e-9cad-97e2b3e665e9": {
+      "type": "newsletter",
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "show_icon": true,
+        "title": "підпишіться",
+        "content": "<p>Для того щоб мати персональні пропозиції, приєднуйтесь до нас.<\/p>",
+        "button_text": "Підписатись",
+        "subtext": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "button_background": "",
+        "button_text_color": ""
+      }
+    },
+    "recently_viewed_products_q6ebW8": {
+      "type": "recently-viewed-products",
+      "settings": {
+        "full_width": true,
+        "products_count": 3,
+        "stack_products": true,
+        "show_progress_bar": true,
+        "products_per_row_mobile": "1",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "Нещодавно переглянуті товари",
+        "content": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "featured_collection_HgAr3a": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "promo_offers",
+        "products": [
+
+        ],
+        "full_width": true,
+        "stack_products": true,
+        "show_progress_bar": false,
+        "products_count": 6,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 3,
+        "subheading": "",
+        "title": "Акційні пропозиції",
+        "content": "",
+        "link_url": "",
+        "link_text": "View all",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "product_card_background": "",
+        "product_card_text_color": ""
+      }
+    },
+    "9aadf7ae-f903-4b50-b083-dadf7a5feabe": {
+      "type": "image-link-blocks-3",
+      "blocks": {
+        "template--21397255029027__9aadf7ae-f903-4b50-b083-dadf7a5feabe-item-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC01998.jpg",
+            "stretch_image": true,
+            "link_text": "Наша команда",
+            "link_url": "shopify:\/\/pages\/our_team",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 5
+          }
+        },
+        "template--21397255029027__9aadf7ae-f903-4b50-b083-dadf7a5feabe-item-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/c_new.jpg",
+            "stretch_image": true,
+            "link_text": "Наш склад",
+            "link_url": "shopify:\/\/pages\/warehouse",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 5
+          }
+        },
+        "55090803-cff3-4f93-86eb-6d9603ae5641": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/office_new_2.jpg",
+            "stretch_image": true,
+            "link_text": "Наш офіс",
+            "link_url": "shopify:\/\/pages\/our-office",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 5
+          }
+        }
+      },
+      "block_order": [
+        "template--21397255029027__9aadf7ae-f903-4b50-b083-dadf7a5feabe-item-1",
+        "template--21397255029027__9aadf7ae-f903-4b50-b083-dadf7a5feabe-item-2",
+        "55090803-cff3-4f93-86eb-6d9603ae5641"
+      ],
+      "settings": {
+        "full_width": true,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "СВІТ  MOVATEX",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "96b4c7f5-4110-4963-a9f4-459361f696b6": {
+      "type": "image-link-blocks-orig",
+      "blocks": {
+        "template--21397255029027__96b4c7f5-4110-4963-a9f4-459361f696b6-item-1": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "shopify:\/\/products\/biflex_matt_303",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--21397255029027__96b4c7f5-4110-4963-a9f4-459361f696b6-item-2": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--21397255029027__96b4c7f5-4110-4963-a9f4-459361f696b6-item-3": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "template--21397255029027__96b4c7f5-4110-4963-a9f4-459361f696b6-item-4": {
+          "type": "item",
+          "settings": {
+            "stretch_image": true,
+            "link_text": "",
+            "link_url": "",
+            "background": "",
+            "text_color": "#ffffff",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "template--21397255029027__96b4c7f5-4110-4963-a9f4-459361f696b6-item-1",
+        "template--21397255029027__96b4c7f5-4110-4963-a9f4-459361f696b6-item-2",
+        "template--21397255029027__96b4c7f5-4110-4963-a9f4-459361f696b6-item-3",
+        "template--21397255029027__96b4c7f5-4110-4963-a9f4-459361f696b6-item-4"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": false,
+        "block_size": "medium",
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "link_url": "",
+        "link_text": "",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": ""
+      }
+    },
+    "custom_html_JnJPk7": {
+      "type": "custom-html",
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "remove_vertical_spacing": false,
+        "remove_horizontal_spacing": false,
+        "html": "Магазин тканини MOVATEX вітає всіх, хто прагне створювати якісні речі з екологічних матеріалів і не витрачати на їх придбання багато коштів. Співпрацюючи з перевіреними виробниками з Туреччини, Німеччини, Італії, ми задовольняємо потреби навіть найбільш вимогливих клієнтів з Дніпра та інших міст України. У нас ви можете купити тканини недорого оптом і вроздріб зі швидкою доставкою. Визначайтеся з вимогами та розпочинайте пошук матеріалу прямо зараз!\n\n<br>\n<h2><b>Натуральні тканини для покупців з різними запитами<\/b><\/h2> \nУ нашому каталозі, який доступний для ознайомлення цілодобово, представлена продукція перевірених фабрик, яка підходить для виготовлення таких речей:\n<li>підкладки;\n<\/li><li>брюки;\n<\/li><li>костюми та сорочки;\n<\/li><li>плаття;\n<\/li><li>верхній і вечірній одяг;\n<\/li><li>спортивний і спеціальний одяг;\n<\/li><li>спідня білизна;\n<\/li><li>домашні речі;\n<\/li><li>пляжні вбрання тощо.\n\n\n<br><br>\nЗважаючи на особливості використання та властивості готової текстильної продукції, можна купити тканини з різною щільністю, текстурою та складом. Приємним аспектом також є різноманіття відтінків – в наявності не лише класичні однотонні тканини, а й з неоновим забарвленням і різноманітними малюнками. Асортимент матеріалів постійно розширюється, й наразі в нашому інтернет-магазині тканин можна замовити:\n<\/li><li>\nатлас, шовк, віскозу;\n<\/li>\n<li>\nбавовну, льон;\n<\/li>\n<li>\nвельвет і велюр;\n<\/li><li>біфлекс, денім;\n<\/li><li>шифон, гіпюр;\n<\/li><li>еко-шкіру, лаке, замшу;\n<\/li><li>кашкорсе, віскозу;\n<\/li><li>трикотаж, хутро;\n<\/li><li>костюмну, пальтову та підкладкову тканини тощо.\n<\/li>\n<br><br>Ми ретельно обираємо постачальників, тому впевнені в тому, що пропоновані нами тканини оптом і вроздріб відповідають стандартам безпеки та екологічності. Серед інших важливих переваг:\n<li>міцність;\n<\/li><li>стійкість до вицвітання;\n<\/li><li>відсутність дефектів;\n<\/li><li>відповідність зовнішньому вигляду, характеристикам і розмірам, що вказані на сайті;\n<\/li><li>доступна вартість.\n\n<br><br>\n<h3><b>Особливості пошуку та замовлення товарів на нашому сайті<\/b><\/h3>\nУ каталозі інтернет-магазину MOVATEX вам не доведеться витрачати надто багато часу й зусиль для вибору потрібної тканини. Швидко визначитися з товаром вам допоможуть:\n<\/li><li>детальні описи, з яких ви дізнаєтеся всю важливу інформацію - від розмірів і ціни до особливостей і призначення матеріалів;\n<\/li><li>тематичні розділи, де тканини розподілені за типом, сферою застосування та кольором; \n<\/li><li>додавання товарів до переліку обраних – це чудова опція, яка дає змогу завчасно зафіксувати ті позиції з каталогу, які ви купуватимете в майбутньому;\n<\/li><li>фільтри індивідуального пошуку – на сайті магазину можна вибирати тканину за певними параметрами, наприклад, за відтінком, країною-виробником, вартістю в разі придбання оптом або вроздріб;\n<\/li><li>сортування за назвою, датою додавання до каталогу, популярністю та ціною. \n\n<br><br>\n<h3><b>Які переваги надає наш інтернет-магазин тканин?<\/b><\/h3>\nЗамовлення тканин в України – чудова можливість отримати матеріали для створення практичного та стильного одягу для себе, членів родини або на продаж. Ми цінуємо кожного нашого покупця та постійно працюємо над підвищенням якості обслуговування та розширенням асортименту. Головні плюси, які отримують наші замовники:\n\n<\/li><li>Стабільно висока якість, що підтверджується офіційною гарантією.<\/li> \n<li>Привабливі ціни на всі різновиди тканин в магазині, які зумовлені безпосередньою співпрацею з виробниками.<\/li>\n<li>Регулярні акції та спеціальні пропозиції для усіх категорій покупців. Регулярно ми встановлюємо знижки на певну продукцію з каталогу, надаємо додаткові бонуси новим, постійним та оптовим замовникам.<\/li> \n<li>Отримати більш детальні відомості про персональні подарунки ви зможете під час підтвердження покупки у менеджера.<\/li>\n<li>Оперативна доставка перевіреними транспортними компаніями. Якщо замовлення зроблене з понеділка по п’ятницю, відправлення відбувається в той же день після оплати, а замовлення, отримані нами у вихідні, відправляються наступного понеділка. В Дніпрі є можливість самовивозу з нашого складу.<\/li>  \n<li>Наявність зразків. Ви можете придбати карту кольорів за незначну суму, щоб мати можливість доторкнутися до тканини з нашого магазину, оцінити її властивості та придивитися до відтінків, аби в майбутньому не помилитися з вибором.<\/li> \n\n\n<br>\n<h3><b>Кваліфікована підтримка на етапі вибору товарів<\/b><\/h3>\nПошук оптимальної тканини в магазині MOVATEX за допомогою фільтрів, сортування та описів не займає багато часу, але у наших клієнтів повсякчас виникають певні запитання та необхідність консультації для прийняття виваженого рішення. В таких випадках завжди готові допомогти наші співробітники, які є професіоналами в своїй справі, тому досконало знають асортимент, особливості кожного товару тощо. \nЗвернутися до спеціаліста з будь-яким питанням можна за телефоном, в месенджерах або написати на електронну пошту. Будемо раді вас проконсультувати та стати провідниками у неймовірний світ сучасних екологічних матеріалів!",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "rich_text_cAficQ": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_UX8mHt": {
+          "type": "subheading",
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_aBBmba": {
+          "type": "heading",
+          "settings": {
+            "text": "Heading",
+            "heading_tag": "h1",
+            "text_color": "",
+            "gradient": ""
+          }
+        },
+        "richtext_pCWhjF": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Магазин тканини MOVATEX вітає всіх, хто прагне створювати якісні речі з екологічних матеріалів і не витрачати на їх придбання багато коштів. Співпрацюючи з перевіреними виробниками з Туреччини, Німеччини, Італії, ми задовольняємо потреби навіть найбільш вимогливих клієнтів з Дніпра та інших міст України. У нас ви можете купити тканини недорого оптом і вроздріб зі швидкою доставкою. Визначайтеся з вимогами та розпочинайте пошук матеріалу прямо зараз!<\/p><h2><strong>Натуральні тканини для покупців з різними запитами <\/strong><\/h2><p>У нашому каталозі, який доступний для ознайомлення цілодобово, представлена продукція перевірених фабрик, яка підходить для виготовлення таких речей:<\/p><ul><li>підкладки;<\/li><li>брюки;<\/li><li>костюми та сорочки;<\/li><li>плаття;<\/li><li>верхній і вечірній одяг;<\/li><li>спортивний і спеціальний одяг;<\/li><li>спідня білизна;<\/li><li>домашні речі;<\/li><li>пляжні вбрання тощо.<\/li><\/ul><p>Зважаючи на особливості використання та властивості готової текстильної продукції, можна купити тканини з різною щільністю, текстурою та складом. Приємним аспектом також є різноманіття відтінків – в наявності не лише класичні однотонні тканини, а й з неоновим забарвленням і різноманітними малюнками. Асортимент матеріалів постійно розширюється, й наразі в нашому інтернет-магазині тканин можна замовити:<\/p><ul><li>атлас, шовк, віскозу;<\/li><li>бавовну, льон;<\/li><li>вельвет і велюр;<\/li><li>біфлекс, денім;<\/li><li>шифон, гіпюр;<\/li><li>еко-шкіру, лаке, замшу;<\/li><li>кашкорсе, віскозу;<\/li><li>трикотаж, хутро;<\/li><li>костюмну, пальтову та підкладкову тканини тощо.<\/li><\/ul><p>Ми ретельно обираємо постачальників, тому впевнені в тому, що пропоновані нами тканини оптом і вроздріб відповідають стандартам безпеки та екологічності. Серед інших важливих переваг:<\/p><ul><li>міцність;<\/li><li>стійкість до вицвітання;<\/li><li>відсутність дефектів;<\/li><li>відповідність зовнішньому вигляду, характеристикам і розмірам, що вказані на сайті;<\/li><li>доступна вартість.<\/li><\/ul><h2><strong>Особливості пошуку та замовлення товарів на нашому сайті<\/strong><\/h2><p>У каталозі інтернет-магазину MOVATEX вам не доведеться витрачати надто багато часу й зусиль для вибору потрібної тканини. Швидко визначитися з товаром вам допоможуть:<\/p><ul><li>детальні описи, з яких ви дізнаєтеся всю важливу інформацію - від розмірів і ціни до особливостей і призначення матеріалів;<\/li><li>тематичні розділи, де тканини розподілені за типом, сферою застосування та кольором; <\/li><li>додавання товарів до переліку обраних – це чудова опція, яка дає змогу завчасно зафіксувати ті позиції з каталогу, які ви купуватимете в майбутньому;<\/li><li>фільтри індивідуального пошуку – на сайті магазину можна вибирати тканину за певними параметрами, наприклад, за відтінком, країною-виробником, вартістю в разі придбання оптом або вроздріб;<\/li><li>сортування за назвою, датою додавання до каталогу, популярністю та ціною. <\/li><\/ul><h2><strong>Які переваги надає наш інтернет-магазин тканин?<\/strong><\/h2><p>Замовлення тканин в України – чудова можливість отримати матеріали для створення практичного та стильного одягу для себе, членів родини або на продаж. Ми цінуємо кожного нашого покупця та постійно працюємо над підвищенням якості обслуговування та розширенням асортименту. Головні плюси, які отримують наші замовники:<\/p><ol><li>Стабільно висока якість, що підтверджується офіційною гарантією. <\/li><li>Привабливі ціни на всі різновиди тканин в магазині, які зумовлені безпосередньою співпрацею з виробниками. <\/li><li>Регулярні акції та спеціальні пропозиції для усіх категорій покупців. Регулярно ми встановлюємо знижки на певну продукцію з каталогу, надаємо додаткові бонуси новим, постійним та оптовим замовникам. Отримати більш детальні відомості про персональні подарунки ви зможете під час підтвердження покупки у менеджера.<\/li><li>Оперативна доставка перевіреними транспортними компаніями. Якщо замовлення зроблене з понеділка по п’ятницю, відправлення відбувається в той же день після оплати, а замовлення, отримані нами у вихідні, відправляються наступного понеділка. В Дніпрі є можливість самовивозу з нашого складу.  <\/li><li>Наявність зразків. Ви можете придбати карту кольорів за незначну суму, щоб мати можливість доторкнутися до тканини з нашого магазину, оцінити її властивості та придивитися до відтінків, аби в майбутньому не помилитися з вибором. <\/li><\/ol><h2><strong>Кваліфікована підтримка на етапі вибору товарів<\/strong><\/h2><p>Пошук оптимальної тканини в магазині MOVATEX за допомогою фільтрів, сортування та описів не займає багато часу, але у наших клієнтів повсякчас виникають певні запитання та необхідність консультації для прийняття виваженого рішення. В таких випадках завжди готові допомогти наші співробітники, які є професіоналами в своїй справі, тому досконало знають асортимент, особливості кожного товару тощо. <\/p><p>Звернутися до спеціаліста з будь-яким питанням можна за телефоном, в месенджерах або написати на електронну пошту. Будемо раді вас проконсультувати та стати провідниками у неймовірний світ сучасних екологічних матеріалів!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_UX8mHt",
+        "heading_aBBmba",
+        "richtext_pCWhjF"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "content_width": "small",
+        "text_position": "center",
+        "background": "",
+        "background_gradient": "",
+        "text_color": ""
+      }
+    },
+    "accordion_content_CczGDr": {
+      "type": "accordion-content",
+      "blocks": {
+        "item_tnBFCj": {
+          "type": "item",
+          "settings": {
+            "title": "Question 1",
+            "content": "<p>Write content to help your customers to better understand your products or policies.<\/p>"
+          }
+        },
+        "item_cXA3qt": {
+          "type": "item",
+          "settings": {
+            "title": "Question 2",
+            "content": "<p>Write content to help your customers to better understand your products or policies.<\/p>"
+          }
+        },
+        "item_MADUki": {
+          "type": "item",
+          "settings": {
+            "title": "Question 3",
+            "content": "<p>Write content to help your customers to better understand your products or policies.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_tnBFCj",
+        "item_cXA3qt",
+        "item_MADUki"
+      ],
+      "disabled": true,
+      "settings": {
+        "full_width": true,
+        "subheading": "",
+        "title": "Heading",
+        "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
+        "button_text": "",
+        "button_url": "",
+        "text_position": "start",
+        "background": "",
+        "background_gradient": "",
+        "text_color": "",
+        "heading_color": "",
+        "heading_gradient": "",
+        "button_background": "",
+        "button_text_color": "",
+        "accordion_background": "",
+        "accordion_text_color": ""
+      }
+    }
+  },
+  "order": [
+    "slideshow_KrrWHk",
+    "custom_liquid_VRA7dq",
+    "slideshow",
+    "featured_collection_bBGkFT",
+    "collection-list",
+    "23df1a5f-8985-4a14-8345-c964c3a120c4",
+    "image-link-blocks",
+    "08019757-b2b0-4f7e-9cad-97e2b3e665e9",
+    "recently_viewed_products_q6ebW8",
+    "featured_collection_HgAr3a",
+    "9aadf7ae-f903-4b50-b083-dadf7a5feabe",
+    "96b4c7f5-4110-4963-a9f4-459361f696b6",
+    "custom_html_JnJPk7",
+    "rich_text_cAficQ",
+    "accordion_content_CczGDr"
+  ]
+}
