@@ -89,7 +89,13 @@
       "available_colors_count": {
         "one": "{{ count }} цвет доступен",
         "other": "Доступно цветов: {{ count }}"
-      }
+      },
+      "minimum_quantity": "Минимальное количество заказа = {{ quantity }}см. Можно заказать с шагом {{ step }} см.",
+      "meters": "Метры",
+      "centimeters": "Сантиметры",
+      "order_count": "Заказанное количество",
+      "cm": "см",
+      "m": "м"
     },
     "gallery": {
       "close": "Закрыть галерею",

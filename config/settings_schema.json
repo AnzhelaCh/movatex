@@ -511,7 +511,7 @@
     "settings": [
       {
         "type": "text",
-        "id": "product_samples_btn",
+        "id": "product_samples_btn_id",
         "label": "Product samples button text",
         "default": "Замовити зразок"
       },

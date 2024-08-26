@@ -38,7 +38,7 @@
         <div class="product-info__price">
           <div class="rating-with-text">
             {%- render 'price-list', variant: product.selected_or_first_available_variant, form_id: product_form_id, size: 'lg', block: block -%}
-            
+
             {%- render 'product-badges', types: 'sold_out, discount', product: product, form_id: product_form_id, class: 'product-info__badge-list' -%}
 
             {%- comment -%}If the next block is a rating block, then we add it as part of this one to have it inline{%- endcomment -%}
@@ -73,7 +73,7 @@
 
 
 {%- comment -%}--------------- SE20240522 STR ----------------{%- endcomment -%}
-{%- comment -%}---------- Price for 1kg/m in card ------------{%- endcomment -%}   
+{%- comment -%}---------- Price for 1kg/m in card ------------{%- endcomment -%}
   <div>
       {% for variant in product.variants %}
         {% if product.selected_or_first_available_variant.id == variant.id %}
@@ -96,21 +96,15 @@
               <strong>Price for 1m is UAH{{ variant.metafields.custom.price_wholesale_m }}</strong>
             {% else %}
             {% endif %}
-          {% endif %}       
+          {% endif %}
         {% endif %}
       {% endfor %}
-{%- comment -%}--------------- SE20240522 END ----------------{%- endcomment -%}  
+{%- comment -%}--------------- SE20240522 END ----------------{%- endcomment -%}
 
 {%- comment -%}--------------- SE20240809 STR ----------------{%- endcomment -%}
-{%- comment -%}--------------- Price  in card ----------------{%- endcomment -%}            
+{%- comment -%}--------------- Price  in card ----------------{%- endcomment -%}
       {% for variant in product.variants %}
         {% if product.selected_or_first_available_variant.id == variant.id %}
-
-
-          
-
-
-{%- comment -%}
           {% if variant.metafields.custom.price_05m != blank %}
             {% if shop.locale == 'uk' %}
               <strong>Ціна від 5м до 9м складає {{ variant.metafields.custom.price_05m | money_format }}грн</strong>
@@ -121,9 +115,9 @@
             {% else %}
             {% endif %}
           {% endif %}
-{%- endcomment -%}    
           {% if product.metafields.custom.fabric_wholesale_link != blank %}
-{%- comment -%}           
+
+
             {% if variant.metafields.custom.price_10m != blank %}
               <br>
               {% if shop.locale == 'uk' %}
@@ -134,7 +128,7 @@
                 <strong>Price from 10m to 29m is UAH{{ variant.metafields.custom.price_10m | money_format }}</strong>
               {% else %}
               {% endif %}
-            {% endif %}       
+            {% endif %}
             {% if product.metafields.custom.fabric_wholesale_link != blank %}
               <br>
               {% if shop.locale == 'uk' %}
@@ -145,14 +139,7 @@
                 <strong>Wholesale from 30m </strong><u><a href="{{ product.metafields.custom.fabric_wholesale_link }}"> view here</a></u>
               {% else %}
               {% endif %}
-            {% endif %} 
-{%- endcomment -%} 
-        
-        
-        
-        
-        
-
+            {% endif %}
           {% elsif product.metafields.custom.fabric_retail_link != blank %}
               <br>
               {% if shop.locale == 'uk' %}
@@ -164,7 +151,6 @@
               {% else %}
               {% endif %}
           {% else %}
-{%- comment -%}             
             {% if variant.metafields.custom.price_10m != blank %}
               <br>
               {% if shop.locale == 'uk' %}
@@ -176,49 +162,13 @@
               {% else %}
               {% endif %}
             {% endif %}
-{%- endcomment -%}             
-          {% endif %} 
-
-       {% if variant.metafields.custom.price_wholesale_kg != blank %}
-         <br>
-            {% if shop.locale == 'uk' %}
-              <small>Ціна вказана за 1кг при покупці цілого рулону.<br>
-              Середня вага рулону становить 15-25кг</small>
-            {% elsif shop.locale == 'ru' %}
-              <small>Цена указана за 1кг при покупке целого рулона.<br>
-              Средний вес рулона составляет 15-25кг</small>
-            {% elsif shop.locale == 'en' %}
-              <small>The price is for 1kg when buying a whole roll.<br>
-              The average weight of a roll is 15-25kg</small>
-            {% else %}
-            {% endif %}
           {% endif %}
-
-          {% if variant.metafields.custom.price_wholesale_m != blank %}
-            <br>
-            {% if shop.locale == 'uk' %}
-              <small>Ціна вказана за 1м при покупці цілого рулону.<br>
-              Середня довжина рулону становить 30-40м</small>
-            {% elsif shop.locale == 'ru' %}
-              <small>Цена указана за 1м при покупке целого рулона.<br>
-              Средняя длина рулона составляет 30-40м</small>
-            {% elsif shop.locale == 'en' %}
-              <small>The price is for 1m when buying a whole roll.<br>
-              The average lenght of a roll is 30-40m</small>
-            {% else %}
-            {% endif %}
-          {% endif %}
-
-
-
-
-          
         {% endif %}
       {% endfor %}
-{%- comment -%}--------------- SE20240809 END ----------------{%- endcomment -%} 
-   
+{%- comment -%}--------------- SE20240809 END ----------------{%- endcomment -%}
+
   </div>
-      
+
       {%- when 'payment_terms' -%}
         <payment-terms class="product-info__payment-terms" form="{{ product_form_id }}" {{ block.shopify_attributes }}>
           {%- capture product_installment_form_id -%}product-installment-form-{{ section.id }}-{{ product.id }}{%- endcapture -%}
@@ -296,18 +246,18 @@
                       {%- assign selected = false -%}
                     {%- endif -%}
 
-                    {%- case block.settings.color_mode -%}
+                   {%- case block.settings.color_mode -%}
                       {%- when 'color' -%}
-                        {%- render 'swatch', type: 'colors', href: product_variation.url, value: value, selected: selected -%}
+                        {%- render 'swatch', type: 'colors', href: product_variation.url, value: value, selected: selected, product_variation: product_variation -%}
 
                       {%- when 'variant' -%}
-                        {%- render 'swatch', type: 'thumbnail', href: product_variation.url, value: value, image: product_variation.featured_media, selected: selected, bordered: true -%}
+                        {%- render 'swatch', type: 'thumbnail', href: product_variation.url, value: value, image: product_variation.featured_media, selected: selected, bordered: true, product_variation: product_variation -%}
 
                       {%- when 'block' -%}
-                        {%- render 'swatch', type: 'block', href: product_variation.url, value: value, selected: selected -%}
+                        {%- render 'swatch', type: 'block', href: product_variation.url, value: value, selected: selected, product_variation: product_variation -%}
 
                       {%- when 'block_swatch' -%}
-                        {%- render 'swatch', type: 'block', href: product_variation.url, value: value, selected: selected, show_colors: true -%}
+                        {%- render 'swatch', type: 'block', href: product_variation.url, value: value, selected: selected, show_colors: true, product_variation: product_variation -%}
                     {%- endcase -%}
                   {%- endfor -%}
                 </div>
@@ -319,21 +269,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-      
       {%- when 'line_item_property' -%}
         {%- if block.settings.label != blank -%}
           {%- capture name -%}properties[{{ block.settings.label | escape }}]{%- endcapture -%}
@@ -348,24 +283,47 @@
             {%- else -%}
               {%- render 'checkbox', label: block.settings.label, name: name, required: block.settings.required, form: product_form_id -%}
             {%- endif -%}
-            
+
           </div>
         {%- endif -%}
 
 
-
-      
       {%- when 'quantity_selector' -%}
         {%- if product.available -%}
-          <div class="product-info__quantity-selector {{ block.shopify_attributes }}">
-            <div class="form-control">
-              <label for="{{ product_form_id }}-quantity" class="block-label text-subdued">{{- 'product.quantity.label' | t -}}:</label>
 
-              <quantity-selector class="quantity-selector">
-                <button type="button" class="quantity-selector__button" aria-label="{{ 'product.quantity.decrease_quantity' | t }}">{% render 'icon' with 'minus', width: 10, height: 2 %}</button>
-                <input id="{{ product_form_id }}-quantity" type="text" is="quantity-input" inputmode="numeric" class="quantity-selector__input" name="quantity" form="{{ product_form_id }}" size="2" value="1" autocomplete="off">
-                <button type="button" class="quantity-selector__button" aria-label="{{ 'product.quantity.increase_quantity' | t }}">{% render 'icon' with 'plus', width: 10, height: 10 %}</button>
-              </quantity-selector>
+          <div class="product-info__quantity-selector {{ block.shopify_attributes }} {% if product.metafields.custom.minimum_order_quantity != blank %} product-in-piece{% endif %}">
+            <div class="form-control">
+              {% unless product.metafields.custom.minimum_order_quantity != blank %}
+                <label for="{{ product_form_id }}-quantity" class="block-label text-subdued">{{- 'product.quantity.label' | t -}}:</label>
+              {% endunless %}
+
+              {% if product.selected_or_first_available_variant.option2 == 'см на відріз' or product.selected_or_first_available_variant.option2 == 'cm per cut' or product.selected_or_first_available_variant.option2 == 'см на отрез' %}
+                <quantity-selector class="quantity-selector js-quantity-selector-cut-inner">
+                  <input id="{{ product_form_id }}-quantity"  type="hidden" is="quantity-input" inputmode="numeric" class="quantity-selector__input js-quantity-selector__input" name="quantity" form="{{ product_form_id }}" size="2" value="{{ product.metafields.custom.minimum_order_quantity }}" autocomplete="off">
+
+                  <div class="pdp-order-quantity-wrap">
+                    <label for="{{ product_form_id }}-quantity" class="block-label text-subdued">{{ 'product.general.meters' | t }}:</label>
+                    <input type="number" id="quantitySelectorCount" name="lengthCount" value="0" min="0" step="1" class="product-form__input js-product-form__input-count" pattern="[0-9]*">
+                  </div>
+
+                  <div class="pdp-order-quantity-wrap">
+                    <label for="quantitySelectorPeaces" class="block-label text-subdued">{{ 'product.general.centimeters' | t }}:</label>
+                    <input type="number" id="quantitySelectorPeaces" name="length" value="{{ product.metafields.custom.minimum_order_quantity }}" min="0" step="10" class="product-form__input" pattern="[0-9]*">
+                  </div>
+
+
+
+                  <button type="button" style="display: none;" class="quantity-selector__button" aria-label="{{ 'product.quantity.decrease_quantity' | t }}">{% render 'icon' with 'minus', width: 10, height: 2 %}</button>
+                  <button type="button" style="display: none;" class="quantity-selector__button" aria-label="{{ 'product.quantity.increase_quantity' | t }}">{% render 'icon' with 'plus', width: 10, height: 10 %}</button>
+                </quantity-selector>
+              {% else %}
+                <quantity-selector class="quantity-selector">
+                  <button type="button" class="quantity-selector__button" aria-label="{{ 'product.quantity.decrease_quantity' | t }}">{% render 'icon' with 'minus', width: 10, height: 2 %}</button>
+                  <input id="{{ product_form_id }}-quantity"  type="text" is="quantity-input" inputmode="numeric" class="quantity-selector__input" name="quantity" form="{{ product_form_id }}" size="2" value="1" autocomplete="off">
+                  <button type="button" class="quantity-selector__button" aria-label="{{ 'product.quantity.increase_quantity' | t }}">{% render 'icon' with 'plus', width: 10, height: 10 %}</button>
+                </quantity-selector>
+              {% endif %}
+
             </div>
           </div>
         {%- endif -%}
@@ -375,7 +333,7 @@
           {%- render 'inventory', product: product, low_threshold: block.settings.low_inventory_threshold, form_id: product_form_id -%}
         </div>
 
-     
+
       {%- when 'buy_buttons' -%}
         {%- assign main_form_exists = true -%}
 
@@ -387,7 +345,7 @@
 {% if product.metafields.custom.product_samples.value != blank %}
   <button style="display: flex; align-items: center; justify-content: center;width: 100%; margin-top: 5px;" class="button button--xl btn-sample js-button-order-example" id="button-order-example">
      {%- render 'icon' with 'sample', width: 18, height: 18 -%}
-      {{ settings.product_samples_btn }}
+   {{ settings.product_samples_btn_id }}
 </button>
 
 
@@ -396,9 +354,9 @@
     display:none;
   }
 </style>
-            
+
 <script>
- 
+
 
 document.getElementById('button-order-example').addEventListener('click', async function(e) {
   var productHandle = "{{product.metafields.custom.product_samples.value.selected_or_first_available_variant.id}}";
@@ -423,16 +381,16 @@ document.getElementById('button-order-example').addEventListener('click', async 
         fetch("/?section_id=cart-drawer")
           .then(response => response.text())
           .then(cartDrawerItemList => {
-           
+
             const contentWrap = document.createElement("div");
             contentWrap.innerHTML = cartDrawerItemList;
-            
+
             const newCartContent = contentWrap.querySelector(".cart-drawer").innerHTML;
             let cartDrawerContainer = document.querySelector(".cart-drawer");
-        
+
            cartDrawerContainer.innerHTML = newCartContent;
 
-      
+
           })
           .catch(error => console.error('Error fetching cart drawer:', error));
       } else {
@@ -445,16 +403,16 @@ document.getElementById('button-order-example').addEventListener('click', async 
 });
 
 
-  
+
 </script>
 {% endif %}
 </div>
-          
+
 
 
 {%- comment -%}---------------- SE20240410 END Anzhela ----------------{%- endcomment -%}
-          
-               
+
+
         {%- endif -%}
 
       {%- when 'pickup_availability' -%}

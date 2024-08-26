@@ -80,15 +80,6 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "newsletter": {
-          "type": "newsletter",
-          "settings": {
-            "image_width": 180,
-            "heading_size": "h3",
-            "title": "Підпишіться на нові акції та персональні пропозиції",
-            "content": ""
-          }
-        },
         "links": {
           "type": "links",
           "settings": {
@@ -121,14 +112,23 @@
             "content": "<p>Невеличкий текст, що розповідає про нашу компанію. Що ми, де ми, та таке інше.<\/p>",
             "enable_follow_on_shop": true
           }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "image_width": 180,
+            "heading_size": "h3",
+            "title": "Підпишіться на нові акції та персональні пропозиції",
+            "content": ""
+          }
         }
       },
       "block_order": [
-        "newsletter",
         "links",
         "95165e0d-39c2-429c-8a72-0c928df7def2",
         "7e1a5804-82ec-45c8-b233-2a33eeef6ee7",
-        "text"
+        "text",
+        "newsletter"
       ],
       "settings": {
         "show_social_media": true,

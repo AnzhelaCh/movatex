@@ -1,44 +1,17 @@
 {%- if collection.metafields.custom.html.value != blank -%}
   <div {% render 'section-properties' %}>
-      <div class="section-stack">
-        {%- render 'section-header'
-          , subheading: section.settings.subheading
-          , heading: section.settings.title
-          , heading_color: section.settings.heading_color
-          , heading_gradient: section.settings.heading_gradient
-          , content: section.settings.content
-          , link_text: section.settings.link_text
-          , link_url: section.settings.link_url -%}
-      </div>    
-    <div class="unhidedtabs">
-      {{ collection.metafields.custom.html_unhide.value }}
+    <div class="section-stack">
+      {%- render 'section-header'
+        , subheading: section.settings.subheading
+        , heading: section.settings.title
+        , heading_color: section.settings.heading_color
+        , heading_gradient: section.settings.heading_gradient
+        , content: section.settings.content
+        , link_text: section.settings.link_text
+        , link_url: section.settings.link_url -%}
     </div>
-    <div class="contenttabs">
+    <div>
       {{ collection.metafields.custom.html.value }}
-    </div >
-    <div class="buttontabs">
-      {% if shop.locale == 'uk' %}
-        <button class="tabsbut" data-showtext="розгорнути" data-hidetext="згорнути">розгорнути</button>
-      {% elsif shop.locale == 'ru' %}
-        <button class="tabsbut" data-showtext="развернуть" data-hidetext="свернуть">развернуть</button>
-      {% elsif shop.locale == 'en' %}
-        <button class="tabsbut" data-showtext="read more" data-hidetext="read less">read more</button>
-      {% else %}
-      {% endif %}
-      <script>
-        const button = document.querySelector(".tabsbut");
-        const content = document.querySelector(".contenttabs");
-        button.addEventListener("click", (event) => {
-          event.preventDefault();
-          const { hidetext, showtext } = event.currentTarget.dataset;
-          if (event.currentTarget.textContent === hidetext) {
-            event.currentTarget.textContent = showtext;
-          } else {
-            event.currentTarget.textContent = hidetext;
-          }
-          content.classList.toggle("auto-width");
-        });
-      </script>
     </div>
   </div>
 {%- endif -%}

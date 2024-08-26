@@ -388,7 +388,7 @@ var CopyButton = class extends HTMLButtonElement {
   }
   get animationElement() {
     return this._animationElement = this._animationElement || document.createRange().createContextualFragment(`
-      <span class="button__feedback">  
+      <span class="button__feedback">
         <svg role="presentation" focusable="false" fill="none" width="18px" height="18px" viewBox="0 0 20 20">
           <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
           <path d="m6 9.8 2.63 2.8L14 7" stroke="currentColor" stroke-width="2"/>
@@ -847,11 +847,11 @@ var template = `
       contain: layout;
       position: relative;
     }
-    
+
     :host([hidden]) {
       display: none;
     }
-    
+
     s {
       position: absolute;
       top: 0;
@@ -1294,25 +1294,35 @@ var CartCount = class extends HTMLElement {
     this._abortController.abort();
   }
   async _updateFromServer() {
-    this.itemCount = (await fetchCart)["item_count"];
+    this.itemCount = (await fetchCart)["items"].length;
   }
+
+
+
   get itemCount() {
     return parseInt(this.innerText);
   }
   set itemCount(count) {
+    let cartItemCount = count;
+
+    if(this.innerText !== ""){
+      cartItemCount = this.innerText;
+    }
+
     if (this.itemCount === count) {
       return;
     }
+
     if (count === 0) {
       animate3(this, { opacity: 0 }, { duration: 0.1 });
-      this.innerText = count;
+      this.innerText =  cartItemCount;
     } else if (this.itemCount === 0) {
       animate3(this, { opacity: 1 }, { duration: 0.1 });
-      this.innerText = count;
+      this.innerText =  cartItemCount;
     } else {
       (async () => {
         await animate3(this.shadowRoot.firstElementChild, { transform: ["translateY(-50%)"], opacity: 0 }, { duration: 0.25, easing: [1, 0, 0, 1] }).finished;
-        this.innerText = count;
+        this.innerText =  cartItemCount;
         animate3(this.shadowRoot.firstElementChild, { transform: ["translateY(50%)", "translateY(0)"], opacity: 1 }, { duration: 0.25, easing: [1, 0, 0, 1] });
       })();
     }
@@ -1766,7 +1776,12 @@ var CartDrawer = class extends Drawer {
     document.addEventListener("cart:change", this._onCartChangedListener);
     document.addEventListener("cart:refresh", this._onCartRefreshListener);
     document.addEventListener("variant:add", this._onVariantAddedListener);
-    document.getElementById('button-order-example').addEventListener('click',this._onExampleAddedListener);
+    let buttonOrderExample = document.getElementById('button-order-example');
+
+    if(buttonOrderExample){
+      buttonOrderExample.addEventListener('click',this._onExampleAddedListener);
+    }
+
   }
   disconnectedCallback() {
     super.disconnectedCallback();
@@ -1788,7 +1803,7 @@ var CartDrawer = class extends Drawer {
    * Update the cart drawer content when cart content changes.
    */
   async _onCartChanged(event) {
-   
+
     const updatedDrawerContent = new DOMParser().parseFromString(event.detail.cart["sections"][extractSectionId(this)], "text/html");
     if (event.detail.cart["item_count"] > 0) {
       const currentInner = this.querySelector(".cart-drawer__inner"), updatedInner = updatedDrawerContent.querySelector(".cart-drawer__inner");
@@ -1805,6 +1820,30 @@ var CartDrawer = class extends Drawer {
       this.replaceChildren(...updatedDrawerContent.querySelector(".cart-drawer").childNodes);
       animate4(this.querySelector(".empty-state"), { opacity: [0, 1], transform: ["translateY(20px)", "translateY(0)"] }, { duration: 0.15 });
     }
+
+    setTimeout(() => {
+      let elemQuantityInput = this.querySelectorAll(".cart-drawer__line-items .line-item.js-is-cut");
+      if (elemQuantityInput) {
+        elemQuantityInput.forEach(el => {
+          let elemQuantityInput = el.querySelector("input");
+
+          if(elemQuantityInput){
+            const lineItem = el;
+
+            if(window.themeVariables.settings.isoCode === 'en'){
+              let productProperties = lineItem.querySelector(".js-item-property");
+              productProperties.innerHTML = `Quantity ordered: ${elemQuantityInput.value}cm (${elemQuantityInput.value / 100}m)`;
+            }else if(window.themeVariables.settings.isoCode === 'ru'){
+              let productProperties = lineItem.querySelector(".js-item-property");
+              productProperties.innerHTML = `Заказанное количество: ${elemQuantityInput.value}см (${elemQuantityInput.value / 100}м)`;
+            }else if(window.themeVariables.settings.isoCode === 'uk'){
+              let productProperties = lineItem.querySelector(".js-item-property");
+              productProperties.innerHTML = `Замовлена кількість: ${elemQuantityInput.value}см (${elemQuantityInput.value / 100}м)`;
+            }
+          }
+        });
+      }
+    }, 1300);
   }
   /**
    * Handle the case when the page is served from BF cache
@@ -1825,9 +1864,9 @@ var CartDrawer = class extends Drawer {
     this.show();
   }
 _onExampleAdded(event) {
-  
-  
- 
+
+
+
   this.show();
 }
 
@@ -2010,6 +2049,21 @@ var LineItemQuantity = class extends HTMLElement {
     this.addEventListener("click", this._onRemoveLinkClicked);
   }
   _onQuantityChanged(event) {
+    if(event.currentTarget.hasAttribute("data-product-in-cm")){
+      if(event.currentTarget.querySelector("input")){
+        const input = event.currentTarget.querySelector("input");
+        let value = parseInt(input.value, 10);
+        const itemMin = event.currentTarget.getAttribute("data-min");
+
+        if (value < parseInt(itemMin)) {
+          value = parseInt(itemMin);
+        } else if (value % 10 !== 0) {
+          value = Math.floor(value / 10) * 10;
+        }
+        input.value = `${value}`;
+      }
+    }
+
     if (!event.target.hasAttribute("data-line-key")) {
       return;
     }
@@ -2057,6 +2111,7 @@ var LineItemQuantity = class extends HTMLElement {
           cart: cartContent
         }
       }));
+
     }
   }
 };
@@ -2353,7 +2408,7 @@ var PillLoader = class extends HTMLElement {
         <span></span>
         <span></span>
       </div>
-      
+
       <svg class="loader-checkmark" fill="none" width="9" height="8" viewBox="0 0 9 8">
         <path d="M1 3.5 3.3 6 8 1" stroke="currentColor" stroke-width="2"/>
       </svg>
@@ -2797,7 +2852,7 @@ var ProductCard = class extends HTMLElement {
         secondMediaElm.srcset = second_img;
       }
     }
-    
+
   }
   _createImageElement(media, classes, sizes) {
     const previewImage = media["preview_image"], image = new Image(previewImage["width"], previewImage["height"]);
@@ -2936,7 +2991,7 @@ var BuyButtons = class extends HTMLElement {
         <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="currentColor"></path>
         <path d="M5.29289 6.70711L11.2929 12.7071L12.7071 11.2929L6.70711 5.29289L5.29289 6.70711ZM6.70711 12.7071L12.7071 6.70711L11.2929 5.2929L5.29289 11.2929L6.70711 12.7071Z" fill="#ffffff"></path>
       </svg>
-      
+
       <p>${event.detail.error}</p>
     `;
     this.before(errorBanner);
@@ -3009,6 +3064,7 @@ var SalePrice = class extends HTMLElement {
   }
   _onVariantChanged(event) {
     const variant = event.detail.variant;
+
     this.lastChild.replaceWith(document.createRange().createContextualFragment(formatMoney(variant["price"], currencyFormat)));
     this.classList.toggle("text-on-sale", variant["compare_at_price"] > variant["price"]);
   }
@@ -3240,11 +3296,11 @@ var ProductGallery = class extends HTMLElement {
             <button class="pagination__item group" rel="prev">
               <span class="animated-arrow animated-arrow--reverse"></span>
             </button>
-            
+
             <span class="pagination__current text-sm">
               <span class="pagination__current-page">1</span> / <span class="pagination__page-count"></span>
             </span>
-            
+
             <button class="pagination__item group" rel="next">
               <span class="animated-arrow"></span>
             </button>
@@ -3523,7 +3579,8 @@ var VariantPicker = class extends HTMLElement {
   /**
    * Select a new variant by its ID
    */
-  selectVariant(id) {
+  async selectVariant(id) {
+
     if (!this._isVariantSelectable(this._getVariantById(id))) {
       id = this._getFirstMatchingAvailableOrSelectableVariant()["id"];
     }
@@ -3533,6 +3590,7 @@ var VariantPicker = class extends HTMLElement {
     }
     this.masterSelector.value = id;
     this.masterSelector.dispatchEvent(new Event("change", { bubbles: true }));
+
     if (this.updateUrl && history.replaceState) {
       const newUrl = new URL(window.location.href);
       if (id) {
@@ -3541,6 +3599,31 @@ var VariantPicker = class extends HTMLElement {
         newUrl.searchParams.delete("variant");
       }
       window.history.replaceState({ path: newUrl.toString() }, "", newUrl.toString());
+
+      /**/
+      const variantPickerPage = document.querySelector(`#shopify-section-${this.dataset.section}`);
+      try {
+        const response = await fetch(
+          `${this.dataset.url}?variant=${id}&section_id=${this.dataset.section}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+
+        const responseText = await response.text();
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+        const variantPicker = html.querySelector(`#shopify-section-${this.dataset.section}`);
+
+        if (variantPicker && variantPickerPage) {
+        variantPickerPage.innerHTML = variantPicker.innerHTML;
+        //this.attachVariantChangeListeners();
+        }
+
+      } catch (error) {
+        console.error('Error rendering product info:', error);
+      }
+
     }
     this._updateDisableSelectors();
     this.masterSelector.form.dispatchEvent(new CustomEvent("variant:change", {
@@ -3803,7 +3886,7 @@ var VideoMedia = class extends BaseMedia {
     if (this.hasAttribute("show-play-button") && !this.shadowRoot) {
       this.attachShadow({ mode: "open" }).appendChild(document.createRange().createContextualFragment(`
         <slot></slot>
-        
+
         <svg part="play-button" fill="none" width="48" height="48" viewBox="0 0 48 48">
           <path d="M48 24C48 10.745 37.255 0 24 0S0 10.745 0 24s10.745 24 24 24 24-10.745 24-24Z" fill="{{ settings.background }}"/>
           <path d="M18.578 32.629a.375.375 0 0 1-.578-.316V15.687c0-.297.328-.476.578-.316l12.931 8.314c.23.147.23.483 0 .63L18.578 32.63Z" fill="{{ settings.text_color }}"/>
@@ -4222,14 +4305,14 @@ var SectionHeader = class extends HTMLElement {
 _reveal2 = new WeakSet();
 reveal_fn2 = function() {
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
       old
   const heading = this.querySelector('h2[reveal-on-scroll="true"]'), headingKeyframe = getHeadingKeyframe(heading);
   new
   const heading = this.querySelector('h2[data-reveal-on-scroll="true"]'), headingKeyframe = getHeadingKeyframe(heading);
-{%- endcomment -%}  
+{%- endcomment -%}
   const heading = this.querySelector('h2[data-reveal-on-scroll="true"]'), headingKeyframe = getHeadingKeyframe(heading);
-{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}  
+{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}
   animate10(...headingKeyframe);
 };
 if (!window.customElements.get("section-header")) {

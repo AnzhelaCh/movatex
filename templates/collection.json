@@ -92,14 +92,9 @@
       "custom_css": [
         "h2,h3 {font-size: 1.2rem; margin-top: 1rem; margin-bottom: 1rem; line-height: 1.2rem; font-weight: bold;}",
         "ol {list-style-type: numeric; list-style-position: inside;}",
-        "ul {list-style-type: square; list-style-position: inside;}",
         "li,ul,ol,dl,p {font-size: 1rem;}",
         "li,p {line-height: 1.5; text-align: justify;}",
-        "li {padding-left: 2%; padding-right: 2%; margin-bottom: 0.15rem;}",
-        "a {font-style: underline; font-weight: bold;}",
-        "a:link {color: #0000ff;}",
-        "a:visited {color: #00008b;}",
-        "a:hover {color: #99ccff;}"
+        "li {padding-left: 2%; padding-right: 2%; margin-bottom: 0.15rem;}"
       ],
       "settings": {
         "background": "",

@@ -17,7 +17,11 @@ Supported variables
   {%- assign line_max_quantity = line_item.variant.inventory_quantity -%}
 {%- endif -%}
 
-<line-item class="line-item">
+{% assign hasOnCut = line_item.options_with_values | where: "value", "см на відріз" %}
+{% assign hasOnCutRu = line_item.options_with_values | where: "value", "см на отрез" %}
+{% assign hasOnCutEn = line_item.options_with_values | where: "value", "cm per cut" %}
+
+<line-item class="line-item {% if hasOnCut.size > 0 or hasOnCutRu.size > 0 or hasOnCutEn.size > 0 %}js-is-cut{% endif %}">
   {%- if line_item.image != blank -%}
     <div class="line-item__media-wrapper">
       {{- line_item.image | image_url: width: line_item.image.width | image_tag: loading: 'lazy', sizes: '(max-width: 740px) 80px, 96px', widths: '80,96,160,192', class: 'line-item__media rounded-xs' -}}
@@ -40,11 +44,21 @@ Supported variables
     </div>
 
     {%- unless line_item.product.has_only_default_variant or line_item.gift_card -%}
-      <p class="text-sm text-subdued">{{ line_item.variant.title }}</p>
+      <p class="text-sm text-subdued">
+        {% if request.locale.iso_code == 'en' %}
+          {{ line_item.variant.title | replace: "см на відріз", "Per cut" }}
+        {% elsif request.locale.iso_code == 'ru' %}
+          {{ line_item.variant.title | replace: "см на відріз", "На отрез" }}
+        {% else %}
+          {{ line_item.variant.title }}
+        {% endif %}
+      </p>
     {%- endunless -%}
 
     {%- if line_item.selling_plan_allocation -%}
-      <p class="text-sm text-subdued">{{ line_item.selling_plan_allocation.selling_plan.name }}</p>
+      <p class="text-sm text-subdued">
+        {{ line_item.selling_plan_allocation.selling_plan.name }}
+      </p>
     {%- endif -%}
 
     {%- unless line_item.properties == blank -%}
@@ -60,7 +74,11 @@ Supported variables
             {%- if property.last contains '/uploads/' -%}
               <a href="{{ property.last }}" class="link">{{ property.last | split: '/' | last }}</a>
             {%- else -%}
-              {{ property.first }}: {{ property.last }}
+              <strong>
+                <span class="js-item-property">
+                   {{ property.first }}: {{ property.last }}
+                </span>
+              </strong>
             {%- endif -%}
           </li>
         {%- endfor -%}
@@ -94,8 +112,8 @@ Supported variables
 
   {%- if show_desktop_quantity -%}
     <div class="line-item__actions text-subdued hidden sm:block">
-      <line-item-quantity class="v-stack gap-2">
-        <input class="quantity-input" type="text" is="quantity-input" inputmode="numeric" {% if line_max_quantity %}max="{{ line_max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
+      <line-item-quantity {% if hasOnCut.size > 0 or hasOnCutRu.size > 0 or hasOnCutEn.size > 0 %}data-product-in-cm="true" data-min="{{ line_item.product.metafields.custom.minimum_order_quantity }}"{% endif %} class="v-stack gap-2">
+        <input class="quantity-input {% if hasOnCut.size > 0 %}js-product-in-cm{% endif %}" type="text" is="quantity-input" inputmode="numeric" {% if line_max_quantity %}max="{{ line_max_quantity }}"{% endif %} data-line-key="{{ line_item.key }}" aria-label="{{ 'cart.order.change_quantity' | t | escape }}" value="{{ line_item.quantity }}">
 
         <span class="text-xs text-center">
           <a href="{{ line_item.url_to_remove }}" class="link">{{ 'cart.order.remove' | t }}</a>

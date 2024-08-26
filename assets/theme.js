@@ -371,7 +371,7 @@ if (!window.customElements.get("next-button")) {
 }
 
 // js/common/actions/copy-button.js
-import { timeline } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { timeline } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var CopyButton = class extends HTMLButtonElement {
   constructor() {
     super();
@@ -388,7 +388,7 @@ var CopyButton = class extends HTMLButtonElement {
   }
   get animationElement() {
     return this._animationElement = this._animationElement || document.createRange().createContextualFragment(`
-      <span class="button__feedback">  
+      <span class="button__feedback">
         <svg role="presentation" focusable="false" fill="none" width="18px" height="18px" viewBox="0 0 20 20">
           <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
           <path d="m6 9.8 2.63 2.8L14 7" stroke="currentColor" stroke-width="2"/>
@@ -414,7 +414,7 @@ if (!window.customElements.get("copy-button")) {
 }
 
 // js/common/actions/custom-button.js
-import { animate, timeline as timeline2, stagger } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate, timeline as timeline2, stagger } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var CustomButton = class extends HTMLButtonElement {
   static get observedAttributes() {
     return ["aria-busy"];
@@ -483,7 +483,7 @@ if (!window.customElements.get("share-button")) {
 }
 
 // js/common/animation/heading.js
-import { stagger as stagger2 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { stagger as stagger2 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 function getHeadingKeyframe(element, options = {}) {
   if (!element) {
     return [];
@@ -508,7 +508,7 @@ function getHeadingKeyframe(element, options = {}) {
 }
 
 // js/common/animation/reveal-items.js
-import { animate as animate2, stagger as stagger3, inView } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate2, stagger as stagger3, inView } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var _reveal, reveal_fn;
 var RevealItems = class extends HTMLElement {
   constructor() {
@@ -689,7 +689,7 @@ if (!window.customElements.get("height-observer")) {
 }
 
 // js/common/behavior/safe-sticky.js
-import { inView as inView2 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { inView as inView2 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var _resizeObserver, _checkPositionListener, _initialTop, _lastKnownY, _currentTop, _position, _recalculateStyles, recalculateStyles_fn, _checkPosition, checkPosition_fn;
 var SafeSticky = class extends HTMLElement {
   constructor() {
@@ -847,11 +847,11 @@ var template = `
       contain: layout;
       position: relative;
     }
-    
+
     :host([hidden]) {
       display: none;
     }
-    
+
     s {
       position: absolute;
       top: 0;
@@ -993,7 +993,7 @@ if (!window.customElements.get("split-lines")) {
 }
 
 // js/common/behavior/visibility-progress.js
-import { scroll } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { scroll } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var VisibilityProgress = class extends HTMLElement {
   connectedCallback() {
     scroll((info) => {
@@ -1009,7 +1009,7 @@ if (!window.customElements.get("visibility-progress")) {
 }
 
 // js/common/carousel/effect-carousel.js
-import { timeline as timeline3, inView as inView3 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { timeline as timeline3, inView as inView3 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 
 // js/common/carousel/base-carousel.js
 var BaseCarousel = class extends HTMLElement {
@@ -1260,7 +1260,7 @@ if (!window.customElements.get("scroll-carousel")) {
 }
 
 // js/common/cart/cart-count.js
-import { animate as animate3 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate3 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 
 // js/common/cart/fetch-cart.js
 var createCartPromise = () => {
@@ -1323,10 +1323,10 @@ if (!window.customElements.get("cart-count")) {
 }
 
 // js/common/cart/cart-drawer.js
-import { animate as animate4 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate4 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 
 // js/common/overlay/dialog-element.js
-import { FocusTrap, Delegate } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { FocusTrap, Delegate } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var _lockLayerCount, _isLocked;
 var _DialogElement = class _DialogElement extends HTMLElement {
   constructor() {
@@ -1530,7 +1530,7 @@ if (!window.customElements.get("close-button")) {
 }
 
 // js/common/overlay/drawer.js
-import { animate as motionAnimate, timeline as motionTimeline } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as motionAnimate, timeline as motionTimeline } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var reduceDrawerAnimation = window.matchMedia("(prefers-reduced-motion: reduce)").matches || JSON.parse("false");
 var Drawer = class extends DialogElement {
   constructor() {
@@ -1619,7 +1619,7 @@ if (!window.customElements.get("x-drawer")) {
 }
 
 // js/common/overlay/popover.js
-import { animate as motionAnimate2, timeline as motionTimeline2 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as motionAnimate2, timeline as motionTimeline2 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var Popover = class extends DialogElement {
   constructor() {
     super();
@@ -1703,7 +1703,7 @@ if (!window.customElements.get("x-popover")) {
 }
 
 // js/common/overlay/privacy-bar.js
-import { Delegate as Delegate2 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { Delegate as Delegate2 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var PrivacyBar = class extends HTMLElement {
   constructor() {
     super();
@@ -1766,7 +1766,12 @@ var CartDrawer = class extends Drawer {
     document.addEventListener("cart:change", this._onCartChangedListener);
     document.addEventListener("cart:refresh", this._onCartRefreshListener);
     document.addEventListener("variant:add", this._onVariantAddedListener);
-    document.getElementById('button-order-example').addEventListener('click',this._onExampleAddedListener);
+    let buttonOrderExample = document.getElementById('button-order-example');
+
+    if(buttonOrderExample){
+      buttonOrderExample.addEventListener('click',this._onExampleAddedListener);
+    }
+
   }
   disconnectedCallback() {
     super.disconnectedCallback();
@@ -1788,7 +1793,7 @@ var CartDrawer = class extends Drawer {
    * Update the cart drawer content when cart content changes.
    */
   async _onCartChanged(event) {
-   
+
     const updatedDrawerContent = new DOMParser().parseFromString(event.detail.cart["sections"][extractSectionId(this)], "text/html");
     if (event.detail.cart["item_count"] > 0) {
       const currentInner = this.querySelector(".cart-drawer__inner"), updatedInner = updatedDrawerContent.querySelector(".cart-drawer__inner");
@@ -1825,9 +1830,9 @@ var CartDrawer = class extends Drawer {
     this.show();
   }
 _onExampleAdded(event) {
-  
-  
- 
+
+
+
   this.show();
 }
 
@@ -2186,7 +2191,7 @@ if (!window.customElements.get("facet-drawer")) {
 }
 
 // js/common/facets/facet-floating-filter.js
-import { animate as animate5 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate5 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var FacetFloatingFilter = class extends HTMLElement {
   connectedCallback() {
     new IntersectionObserver(this._onFooterVisibilityChanged.bind(this), { rootMargin: "50px 0px" }).observe(document.querySelector(".shopify-section--footer"));
@@ -2341,7 +2346,7 @@ if (!window.customElements.get("facet-sort-by")) {
 }
 
 // js/common/feedback/pill-loader.js
-import { animate as animate6, timeline as timeline4, stagger as stagger4 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate6, timeline as timeline4, stagger as stagger4 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var PillLoader = class extends HTMLElement {
   static get observedAttributes() {
     return ["aria-busy"];
@@ -2353,7 +2358,7 @@ var PillLoader = class extends HTMLElement {
         <span></span>
         <span></span>
       </div>
-      
+
       <svg class="loader-checkmark" fill="none" width="9" height="8" viewBox="0 0 9 8">
         <path d="M1 3.5 3.3 6 8 1" stroke="currentColor" stroke-width="2"/>
       </svg>
@@ -2732,7 +2737,7 @@ var ProductLoader = class {
 __publicField(ProductLoader, "loadedProducts", {});
 
 // js/common/product/product-card.js
-import { Delegate as Delegate3 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { Delegate as Delegate3 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var ProductCard = class extends HTMLElement {
   constructor() {
     super();
@@ -2797,7 +2802,7 @@ var ProductCard = class extends HTMLElement {
         secondMediaElm.srcset = second_img;
       }
     }
-    
+
   }
   _createImageElement(media, classes, sizes) {
     const previewImage = media["preview_image"], image = new Image(previewImage["width"], previewImage["height"]);
@@ -2936,7 +2941,7 @@ var BuyButtons = class extends HTMLElement {
         <path d="M0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9Z" fill="currentColor"></path>
         <path d="M5.29289 6.70711L11.2929 12.7071L12.7071 11.2929L6.70711 5.29289L5.29289 6.70711ZM6.70711 12.7071L12.7071 6.70711L11.2929 5.2929L5.29289 11.2929L6.70711 12.7071Z" fill="#ffffff"></path>
       </svg>
-      
+
       <p>${event.detail.error}</p>
     `;
     this.before(errorBanner);
@@ -3009,6 +3014,7 @@ var SalePrice = class extends HTMLElement {
   }
   _onVariantChanged(event) {
     const variant = event.detail.variant;
+
     this.lastChild.replaceWith(document.createRange().createContextualFragment(formatMoney(variant["price"], currencyFormat)));
     this.classList.toggle("text-on-sale", variant["compare_at_price"] > variant["price"]);
   }
@@ -3184,7 +3190,7 @@ if (!window.customElements.get("variant-sku")) {
 }
 
 // js/common/product/product-gallery.js
-import { PhotoSwipeLightbox } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { PhotoSwipeLightbox } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var ProductGallery = class extends HTMLElement {
   constructor() {
     super();
@@ -3212,7 +3218,7 @@ var ProductGallery = class extends HTMLElement {
       return this._photoswipe;
     }
     const photoswipe = new PhotoSwipeLightbox({
-      pswpModule: () => import("//movatex.com/cdn/shop/t/28/assets/photoswipe.min.js?v=23923577218600574321707224434"),
+      pswpModule: () => import("//movatex.com/cdn/shop/t/41/assets/photoswipe.min.js?v=23923577218600574321723807719"),
       bgOpacity: 1,
       maxZoomLevel: parseInt(this.getAttribute("allow-zoom")) || 3,
       closeTitle: window.themeVariables.strings.closeGallery,
@@ -3240,11 +3246,11 @@ var ProductGallery = class extends HTMLElement {
             <button class="pagination__item group" rel="prev">
               <span class="animated-arrow animated-arrow--reverse"></span>
             </button>
-            
+
             <span class="pagination__current text-sm">
               <span class="pagination__current-page">1</span> / <span class="pagination__page-count"></span>
             </span>
-            
+
             <button class="pagination__item group" rel="next">
               <span class="animated-arrow"></span>
             </button>
@@ -3442,7 +3448,7 @@ if (!window.customElements.get("product-quick-add")) {
 }
 
 // js/common/product/quick-buy-drawer.js
-import { animate as animate7, timeline as timeline5 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate7, timeline as timeline5 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var QuickBuyDrawer = class extends Drawer {
   constructor() {
     super();
@@ -3523,7 +3529,8 @@ var VariantPicker = class extends HTMLElement {
   /**
    * Select a new variant by its ID
    */
-  selectVariant(id) {
+  async selectVariant(id) {
+
     if (!this._isVariantSelectable(this._getVariantById(id))) {
       id = this._getFirstMatchingAvailableOrSelectableVariant()["id"];
     }
@@ -3533,6 +3540,7 @@ var VariantPicker = class extends HTMLElement {
     }
     this.masterSelector.value = id;
     this.masterSelector.dispatchEvent(new Event("change", { bubbles: true }));
+
     if (this.updateUrl && history.replaceState) {
       const newUrl = new URL(window.location.href);
       if (id) {
@@ -3541,6 +3549,31 @@ var VariantPicker = class extends HTMLElement {
         newUrl.searchParams.delete("variant");
       }
       window.history.replaceState({ path: newUrl.toString() }, "", newUrl.toString());
+
+      /**/
+      const variantPickerPage = document.querySelector(`#shopify-section-${this.dataset.section} safe-sticky`);
+      try {
+        const response = await fetch(
+          `${this.dataset.url}?variant=${id}&section_id=${this.dataset.section}`
+        );
+
+        if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.statusText}`);
+        }
+
+        const responseText = await response.text();
+        const html = new DOMParser().parseFromString(responseText, 'text/html');
+        const variantPicker = html.querySelector(`#shopify-section-${this.dataset.section} safe-sticky`);
+
+        if (variantPicker && variantPickerPage) {
+        variantPickerPage.innerHTML = variantPicker.innerHTML;
+        //this.attachVariantChangeListeners();
+        }
+
+      } catch (error) {
+        console.error('Error rendering product info:', error);
+      }
+
     }
     this._updateDisableSelectors();
     this.masterSelector.form.dispatchEvent(new CustomEvent("variant:change", {
@@ -3691,7 +3724,7 @@ if (!window.customElements.get("variant-option-value")) {
 }
 
 // js/common/media/base-media.js
-import { inView as inView4 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { inView as inView4 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var BaseMedia = class extends HTMLElement {
   static get observedAttributes() {
     return ["playing"];
@@ -3803,7 +3836,7 @@ var VideoMedia = class extends BaseMedia {
     if (this.hasAttribute("show-play-button") && !this.shadowRoot) {
       this.attachShadow({ mode: "open" }).appendChild(document.createRange().createContextualFragment(`
         <slot></slot>
-        
+
         <svg part="play-button" fill="none" width="48" height="48" viewBox="0 0 48 48">
           <path d="M48 24C48 10.745 37.255 0 24 0S0 10.745 0 24s10.745 24 24 24 24-10.745 24-24Z" fill="#ffffff"/>
           <path d="M18.578 32.629a.375.375 0 0 1-.578-.316V15.687c0-.297.328-.476.578-.316l12.931 8.314c.23.147.23.483 0 .63L18.578 32.63Z" fill="#1a1a1a"/>
@@ -3914,7 +3947,7 @@ if (!window.customElements.get("video-media")) {
 }
 
 // js/common/navigation/accordion-disclosure.js
-import { timeline as timeline6 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { timeline as timeline6 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 
 // js/common/navigation/animated-details.js
 var AnimatedDetails = class extends HTMLDetailsElement {
@@ -3995,7 +4028,7 @@ if (!window.customElements.get("accordion-disclosure")) {
 }
 
 // js/common/navigation/tabs.js
-import { animate as animate8 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate8 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var Tabs = class extends HTMLElement {
   static get observedAttributes() {
     return ["selected-index"];
@@ -4083,7 +4116,7 @@ if (!window.customElements.get("x-tabs")) {
 }
 
 // js/common/search/predictive-search.js
-import { animate as animate9 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate9 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var PredictiveSearch = class extends HTMLElement {
   constructor() {
     super();
@@ -4206,7 +4239,7 @@ if (!window.customElements.get("search-drawer")) {
 }
 
 // js/common/text/section-header.js
-import { animate as animate10, inView as inView5 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { animate as animate10, inView as inView5 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 var _reveal2, reveal_fn2;
 var SectionHeader = class extends HTMLElement {
   constructor() {
@@ -4244,7 +4277,7 @@ if (!window.customElements.get("marquee-text")) {
 }
 
 // js/theme.js
-import { Delegate as Delegate4 } from "//movatex.com/cdn/shop/t/28/assets/vendor.min.js?v=110209841862038618801707224434";
+import { Delegate as Delegate4 } from "//movatex.com/cdn/shop/t/41/assets/vendor.min.js?v=110209841862038618801723807719";
 (() => {
   const delegateDocument = new Delegate4(document.documentElement);
   if (window.themeVariables.settings.showPageTransition && "animate" in document.documentElement && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {

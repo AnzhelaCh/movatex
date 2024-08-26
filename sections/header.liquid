@@ -98,14 +98,14 @@ the underlying logic of the menu.
             {%- render 'icon' with 'search' -%}
           </a>
 
-          
+
         </div>
       </div>
 
 
 
 
-      
+
       {%- comment -%}
       --------------------------------------------------------------------------------------------------------------------
       LOGO AREA
@@ -144,14 +144,14 @@ the underlying logic of the menu.
       <div class="header__secondary-nav">
         {%- if section.settings.header != 'drawer' and section.settings.secondary_menu.links.size > 0 -%}
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
-old          
+{%- comment -%}---------------- Error correct ----------------
+old
           <nav class="header__link-list" role="navigation">
 new
           <nav class="header__link-list">
 {%- endcomment -%}
           <nav class="header__link-list">
-{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}  
+{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}
             <ul class="contents">
               {%- for link in section.settings.secondary_menu.links -%}
                 <li>
@@ -179,7 +179,7 @@ new
             <span class="sr-only">{{ 'header.general.open_search' | t }}</span>
             {%- render 'icon' with 'search' -%}
           </a>
-          
+
           {%- if shop.customer_accounts_enabled -%}
             <a href="{{ routes.account_url }}" class="hidden tap-area sm:block">
               <span class="sr-only">{{ 'header.general.open_account' | t }}</span>
@@ -191,14 +191,14 @@ new
               <span class="sr-only">{{ 'header.general.open_account' | t }}</span>
               {%- render 'icon' with 'phone_call' -%}
             </a>
-          
+
           <a href="{{ routes.cart_url }}" data-no-instant class="relative tap-area" {% if settings.cart_type != 'page' and request.page_type != 'cart' %}aria-controls="cart-drawer"{% endif %}>
             <span class="sr-only">{{ 'header.general.open_cart' | t }}</span>
             {%- render 'icon' with 'cart' -%}
 
             <div class="header__cart-count">
               <cart-count class="count-bubble {% if cart.item_count == 0 %}opacity-0{% endif %}" aria-hidden="true">
-                {{- cart.item_count -}}
+                {{ cart.items.size }}
               </cart-count>
             </div>
           </a>
@@ -210,35 +210,35 @@ new
 
 {%- comment -%}---------------- SE20240410 STR Anzhela ----------------{%- endcomment -%}
 {%- comment -%}---------------- search for mobile ----------------{%- endcomment -%}
-         
- {%- comment -%}---------------- NE Anzhela version ----------------           
+
+ {%- comment -%}---------------- NE Anzhela version ----------------
  <form class="main-search-form" action="{{ routes.search_url }}" method="get" role="search">
     <input type="hidden" name="type" value="product">
 
     <div class="v-stack gap-6 sm:gap-12">
       <div class="search-input">
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
 old
         <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.general.search_placeholder' | t }}" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="{{ 'search.general.title' | t | escape }}">
 new
         <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.general.search_placeholder' | t }}" autocomplete="off" spellcheck="false" aria-label="{{ 'search.general.title' | t | escape }}">
 {%- endcomment -%}
         <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.general.search_placeholder' | t }}" autocomplete="off" spellcheck="false" aria-label="{{ 'search.general.title' | t | escape }}">
-{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}          
+{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}
         <button type="submit">{%- render 'icon' with 'search' -%}</button>
       </div>
     </div>
   </form>
 {%- endcomment -%}
- 
+
     <form class="main-search-form search-form-mobile" action="{{ routes.search_url }}" method="get" role="search">
       <input type="hidden" name="type" value="product">
 
       <div class="v-stack gap-6 sm:gap-12">
         <div class="search-input">
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
 old
           <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'search.general.search_placeholder' | t | remove: "..." }}" autocomplete="off" autocorrect="off" spellcheck="false" aria-label="{{ 'search.general.title' | t | escape }}">
 new
@@ -250,7 +250,7 @@ new
         </div>
       </div>
     </form>
- 
+
 {%- comment -%}---------------- SE20240410 END Anzhela ----------------{%- endcomment -%}
 
 
@@ -262,13 +262,13 @@ new
       {%- endcomment -%}
     <div class="header__wrapper__second__line">
       <div class="header__main-nav">
-        
+
         <div class="header__icon-list" style="width:100%; margin:0 auto; align-items: center; justify-content: center">
 
 
           {%- if section.settings.layout != 'drawer' and section.settings.menu.links.size > 0 -%}
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
 old
             <nav class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap" role="navigation">
               <ul class="contents" role="list">
@@ -278,7 +278,7 @@ new
 {%- endcomment -%}
             <nav class="header__link-list {% if section.settings.layout == 'logo_left_navigation_center' %}justify-center{% endif %} wrap">
               <ul class="contents">
-{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}            
+{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}
                 {%- for link in section.settings.menu.links -%}
                   {% liquid
                     assign link_title_downcase = link.title | strip | downcase
@@ -325,7 +325,7 @@ new
                         {%- endunless -%}
                       {%- else -%}
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
 old
                         <details class="relative" is="dropdown-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}">
 new
@@ -339,14 +339,14 @@ new
 
                           <div class="dropdown-menu {% if link.levels <= 1 %}dropdown-menu--restrictable{% endif %}">
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
 old
                             <ul class="contents" role="list">
 new
                             <ul class="contents">
 {%- endcomment -%}
                             <ul class="contents">
-{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}  
+{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}
                               {%- for sub_link in link.links -%}
                                 <li>
                                   {%- if sub_link.levels == 0 -%}
@@ -355,7 +355,7 @@ new
                                     </a>
                                   {%- else -%}
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
 old
                                     <details class="relative" is="dropdown-disclosure" trigger="{{ section.settings.menu_open_trigger | escape }}">
 new
@@ -370,7 +370,7 @@ new
 
                                       <div class="dropdown-menu">
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
 old
                                         <ul class="contents" role="list">
 new

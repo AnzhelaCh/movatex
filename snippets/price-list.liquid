@@ -46,33 +46,62 @@
       VARIANT CASE (used on product page, quick view...)
       --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
-    <sale-price
-      {% if form_id %}
+   <sale-price
+    {% if form_id %}
       form="{{ form_id }}"
       {% endif %}
       class="{% if variant.compare_at_price > variant.price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
       <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
 
+      {% assign variantPrice = variant.price %}
+      {% assign comparePrice = variant.compare_at_price %}
+
+      {% if variant.option2 == 'см на відріз' and product.metafields.custom.minimum_order_quantity != blank %}
+        {% assign variantPrice = variant.price | times: 100 %}
+        {% assign comparePrice = variant.compare_at_price | times: 100 %}
+          {% elsif variant.option2 == 'cm per cut' and product.metafields.custom.minimum_order_quantity != blank %}
+          {% assign variantPrice = variant.price | times: 100 %}
+          {% assign comparePrice = variant.compare_at_price | times: 100 %}
+      {% elsif variant.option2 == 'см на отрез' and product.metafields.custom.minimum_order_quantity != blank %}
+          {% assign variantPrice = variant.price | times: 100 %}
+          {% assign comparePrice = variant.compare_at_price | times: 100 %}
+      {% endif %}
+
       {%- if settings.currency_code_enabled -%}
-        {{- variant.price | money_with_currency -}}
+        {{- variantPrice | money_with_currency -}}
       {%- else -%}
-        {{- variant.price | money -}}
+        {{- variantPrice | money -}}
       {%- endif -%}
     </sale-price>
 
-    <compare-at-price
+    {% if variant.option2 == 'см на відріз' %}
+      <span class="product-variant-price-piece">
+        ({{ variant.price | money }} / 1 см)
+      </span>
+        {% elsif variant.option2 == 'cm per cut' %}
+        <span class="product-variant-price-piece">
+        ({{ variant.price | money }} / 1 cm)
+      </span>
+    {% elsif variant.option2 == 'см на отрез' %}
+        <span class="product-variant-price-piece">
+        ({{ variant.price | money }} / 1 см)
+      </span>
+    {% endif %}
+
+
+   <compare-at-price
       {% if form_id %}
       form="{{ form_id }}"
       {% endif %}
-      {% unless variant.compare_at_price > variant.price %}
+      {% unless comparePrice > variantPrice %}
       hidden{% endunless %}
       class="{{ compare_at_price_classes }}">
       <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
       {%- if settings.currency_code_enabled -%}
-        {{- variant.compare_at_price | money_with_currency -}}
+        {{- comparePrice | money_with_currency -}}
       {%- else -%}
-        {{- variant.compare_at_price | money -}}
+        {{- comparePrice | money -}}
       {%- endif -%}
     </compare-at-price>
   {%- elsif line_item != blank -%}
@@ -82,7 +111,7 @@
       --------------------------------------------------------------------------------------------------------------------
     {%- endcomment -%}
     <sale-price class="{% if line_item.original_line_price > line_item.final_line_price %}{{ on_sale_price_classes }}{% else %}{{ regular_price_classes }}{% endif %}">
-      <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
+     <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
 
       {%- if settings.currency_code_enabled -%}
         {{- line_item.final_line_price | money_with_currency -}}
@@ -92,7 +121,7 @@
     </sale-price>
 
     {%- if line_item.original_line_price > line_item.final_line_price -%}
-      <compare-at-price class="{{ compare_at_price_classes }}">
+     <compare-at-price class="{{ compare_at_price_classes }}">
         <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
@@ -119,13 +148,13 @@
         {%- endif -%}
       {%- endcapture -%}
       {%- if cheapest_variant.price < cheapest_variant.compare_at_price -%}
-        <sale-price class="{{ on_sale_price_classes }}">
+       <sale-price class="{{ on_sale_price_classes }}">
           <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
           {{- 'product.price.from_price_html' | t: price_min: price_min -}}
         </sale-price>
 
         <compare-at-price class="{{ compare_at_price_classes }}">
-          <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
+         <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
           {%- if settings.currency_code_enabled -%}
             {{- cheapest_variant.compare_at_price | money_with_currency -}}
@@ -137,24 +166,39 @@
         <sale-price class="{{ on_sale_price_classes }}">
           <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
           {% assign product_price_custom = product.variants | sort: 'price' | second %}
-          {% for item in product_price_custom %}
-            {% if item.price > 900 %}
-              {% if product.compare_at_price > item.price %}
+
+          {% for item in product.variants %}
+            {% assign productPriceEl = item.price %}
+            {% assign productComparePrice = product.compare_at_price %}
+
+           {% if item.option2 == 'см на відріз' and product.metafields.custom.minimum_order_quantity != blank %}
+             {% assign productPriceEl = item.price | times: 100 %}
+             {% assign productComparePrice = product.compare_at_price | times: 100 %}
+               {% elsif item.option2 == 'cm per cut' and product.metafields.custom.minimum_order_quantity != blank %}
+               {% assign productPriceEl = item.price | times: 100 %}
+               {% assign productComparePrice = product.compare_at_price | times: 100 %}
+           {% elsif item.option2 == 'см на отрез' and product.metafields.custom.minimum_order_quantity != blank %}
+               {% assign productPriceEl = item.price | times: 100 %}
+               {% assign productComparePrice = product.compare_at_price | times: 100 %}
+           {% endif %}
+
+            {% if productPriceEl > 900 %}
+              {% if productComparePrice > productPriceEl %}
                 {% if settings.currency_code_enabled %}
                   {% if shop.locale == 'uk' %}
-                    Від {{ item.price | money_with_currency }}
+                    Від {{ productPriceEl | money_with_currency }}
                   {% elsif shop.locale == 'en' %}
-                    From {{ item.price | money_with_currency }}
+                    From {{ productPriceEl | money_with_currency }}
                   {% elsif shop.locale == 'ru' %}
-                    От {{ item.price | money_with_currency }}
+                    От {{ productPriceEl | money_with_currency }}
                   {% endif %}
                 {% else %}
                   {% if shop.locale == 'uk' %}
-                    Від {{ item.price | money }}
+                    Від {{ productPriceEl | money }}
                   {% elsif shop.locale == 'en' %}
-                    From {{ item.price | money }}
+                    From {{ productPriceEl | money }}
                   {% elsif shop.locale == 'ru' %}
-                    От {{ item.price | money }}
+                    От {{ productPriceEl | money }}
                   {% endif %}
                 {% endif %}
                 {% break %}
@@ -163,21 +207,21 @@
           {% endfor %}
         </sale-price>
 
-        <compare-at-price class="{{ compare_at_price_classes }}{% if product.compare_at_price < 900 %} price-list__custom{% endif %}">
+        <compare-at-price class="{{ compare_at_price_classes }}{% if productComparePrice < 900 %} price-list__custom{% endif %}">
           <span class="sr-only">{{ 'product.price.regular_price' | t }}</span>
 
           {%- if settings.currency_code_enabled -%}
-            {{- product.compare_at_price | money_with_currency -}}
-          {% elsif product.compare_at_price < 900 %}
+            {{- productComparePrice | money_with_currency -}}
+          {% elsif productComparePrice < 900 %}
             {{- product.price_max | money -}}
             {% break %}
           {%- else -%}
-            {{- product.compare_at_price | money -}}
+            {{- productComparePrice | money -}}
           {%- endif -%}
         </compare-at-price>
       {%- endif -%}
     {%- elsif product.price < product.compare_at_price -%}
-      <sale-price class="{{ on_sale_price_classes }}">
+     <sale-price class="{{ on_sale_price_classes }}">
         <span class="sr-only">{{ 'product.price.sale_price' | t }}</span>
 
         {%- if settings.currency_code_enabled -%}
@@ -242,7 +286,7 @@
     {%- assign unit_price_item = variant | default: line_item | default: product.selected_or_first_available_variant -%}
 
     {%- if unit_price_item.unit_price or form_id != blank -%}
-      <unit-price
+     <unit-price
         {% if form_id %}
         form="{{ form_id }}"
         {% endif %}

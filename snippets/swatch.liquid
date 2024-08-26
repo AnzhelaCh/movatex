@@ -63,7 +63,7 @@ Color swatch specific parameters:
           echo color | append: ' ' | append: angle | append: 'deg '
           assign angle = angle | plus: angle_increment
           echo angle | append: 'deg'
-          
+
           unless forloop.last
             echo ', '
           endunless
@@ -118,24 +118,24 @@ Color swatch specific parameters:
         Верхняя строка картинка вписана в квадрат (с пустышками по сторонам)
         Строка пониже картинка заливает квадрат, с нарушением пропорций
           {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-contain' -}}
-          {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-cover' -}} 
+          {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-cover' -}}
 {%- endcomment -%}
-          {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-cover' -}} 
+          {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-cover' -}}
       </a>
       {%- else -%}
-        <label class="thumbnail-swatch {% if size == 'sm' %}thumbnail-swatch--sm{% endif %} {% if bordered %}border{% endif %}" for="{{ id | escape }}" data-option-value>
+        <label class="thumbnail-swatch {% if size == 'sm' %}thumbnail-swatch--sm{% endif %} {% if bordered %}border{% endif %}" for="{{ id | escape }}" data-option-value  data-max="{{ product.selected_or_first_available_variant.inventory_quantity }}">
           <span class="sr-only">{{ label | default: value }}</span>
 {%- comment -%}
         Верхняя строка картинка вписана в квадрат (с пустышками по сторонам)
         Строка пониже картинка заливает квадрат, с нарушением пропорций
           {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-contain' -}}
-          {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-cover' -}} 
+          {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-cover' -}}
 {%- endcomment -%}
-          {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-cover' -}} 
+          {{- image | image_url: width: image.width | image_tag: loading: 'lazy', sizes: '60px', widths: '60,120', class: 'object-cover' -}}
         </label>
       {%- endif -%}
     {%- else -%}
-      <label class="block-swatch" for="{{ id | escape }}" data-option-value>{{ label | default: value }}</label>
+      <label class="block-swatch" for="{{ id | escape }}" data-option-value data-max="{{ product.selected_or_first_available_variant.inventory_quantity }}">{{ label | default: value }}</label>
     {%- endif -%}
 
   {%- when 'block' -%}
@@ -152,12 +152,18 @@ Color swatch specific parameters:
       </a>
 
     {%- else -%}
-      <label class="block-swatch" for="{{ id | escape }}" data-option-value>
+      <label class="block-swatch" for="{{ id | escape }}" data-option-value  data-max="{{ product.selected_or_first_available_variant.inventory_quantity }}">
         {%- if show_colors -%}
           <span class="block-swatch__color {% if white_label == value_downcase %}ring-inset{% endif %}" style="{{ swatch_style }}"></span>
         {%- endif -%}
 
-        <span>{{ label | default: value }}</span>
+        {% if request.locale.iso_code == 'en' %}
+          <span>{{ label | default: value | replace: "см на відріз", "cm per cut" }}</span>
+          {% elsif request.locale.iso_code == 'ru' %}
+          <span>{{ label | default: value | replace: "см на відріз", "см на отрез" }}</span>
+        {% else %}
+          <span>{{ label | default: value }}</span>
+        {% endif %}
       </label>
     {%- endif -%}
 
@@ -170,7 +176,7 @@ Color swatch specific parameters:
         <span class="sr-only">{{ label | default: value }}</span>
       </a>
     {%- else -%}
-      <label class="color-swatch {% if settings.color_swatch_style == 'rectangle' %}color-swatch--rectangle{% endif %} {% if size == 'sm' %}color-swatch--sm{% endif %} {% if white_label == value_downcase %}ring-inset{% endif %} {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %}" for="{{ id | escape }}" data-option-value {% if show_tooltip %}data-tooltip="{{ label | default: value | escape }}"{% endif %} style="{{ swatch_style }}">
+      <label class="color-swatch {% if settings.color_swatch_style == 'rectangle' %}color-swatch--rectangle{% endif %} {% if size == 'sm' %}color-swatch--sm{% endif %} {% if white_label == value_downcase %}ring-inset{% endif %} {% if settings.color_swatch_style == 'round' %}rounded-full{% endif %}" for="{{ id | escape }}" data-option-value data-min="{{ product.metafields.custom.minimum_order_quantity }}" data-step="10" data-option-value {% if show_tooltip %}data-tooltip="{{ label | default: value | escape }}"{% endif %} style="{{ swatch_style }}">
         <span class="sr-only">{{ label | default: value }}</span>
       </label>
     {%- endif -%}

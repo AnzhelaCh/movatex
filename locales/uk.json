@@ -89,7 +89,13 @@
       "available_colors_count": {
         "one": "Доступно кольорів: {{ count }}",
         "other": "Доступно кольорів: {{ count }}"
-      }
+      },
+      "minimum_quantity": "Мінімальна кількість замовлення = {{ quantity }}см. Можна замовити з кроком {{ step }} см.",
+      "meters": "Метри",
+      "centimeters": "Сантиметри",
+      "order_count": "Замовлена кількість",
+      "cm": "см",
+      "m": "м"
     },
     "gallery": {
       "close": "Закрити галерею",
@@ -276,7 +282,7 @@
       "save_address": "Зберегти адресу",
       "edit": "Редагувати",
       "delete": "Видалити",
-      "default_address": "Адреса за замовчуванням",
+      "default_address": "Типова адреса",
       "address_title": "Адреса {{ position }}",
       "delete_confirm": "Вилучити цю адресу? Після підтвердження ви не зможете скасувати цю дію.",
       "fill_form": "Заповніть наведені нижче поля.",
@@ -290,7 +296,7 @@
       "zip": "Поштовий індекс",
       "country": "Країна",
       "province": "Область",
-      "set_default": "Встановити як адресу за замовчуванням"
+      "set_default": "Установити як типову адресу"
     }
   },
   "cart": {
@@ -919,9 +925,7 @@
       "search": "Пошук",
       "collections": "Колекції",
       "not_found": "404 Не знайдено",
-      "reset_account": "Скидання паролю до облікового запису",
-      "account": "Обліковий запис",
-      "create_account": "Створити обліковий запис"
+      "reset_account": "Скидання паролю до аккаунт"
     },
     "filters": {
       "availability": {
@@ -942,22 +946,10 @@
       "order": {
         "cancel_reason": {
           "other": "Інше"
-        },
-        "financial_status": {
-          "pending": "В очікуванні"
-        },
-        "transaction_status": {
-          "pending": "В очікуванні"
-        },
-        "fulfillment_status": {
-          "unfulfilled": "Не завершений"
         }
       },
       "cart": {
         "too_many_items_in_cart": "В кошик додана кількість товару яка доступна зараз"
-      },
-      "customer": {
-        "invalid_credentials": "Невірна email адреса або пароль."
       }
     },
     "errors": {
@@ -1081,11 +1073,6 @@
       "purchase_order_number": {
         "cancel": "Скасувати",
         "save": "Зберегти"
-      },
-      "orders": {
-        "draft_order_list": {
-          "title": "В очікуванні"
-        }
       }
     },
     "orders": {

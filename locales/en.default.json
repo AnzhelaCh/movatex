@@ -89,7 +89,13 @@
       "available_colors_count": {
         "one": "{{ count }} color available",
         "other": "{{ count }} colors available"
-      }
+      },
+      "minimum_quantity": "Minimum order quantity = {{ quantity }} cm. Can be ordered in increments of {{ step }} cm.",
+      "meters": "Meters",
+      "centimeters": "Centimeters",
+      "order_count": "Quantity ordered",
+      "cm": "cm",
+      "m": "m"
     },
     "gallery": {
       "close": "Close gallery",

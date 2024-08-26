@@ -32,7 +32,7 @@ NOTE TO DEVELOPERS: welcome to Impact theme! We hope that you will enjoy editing
       {%- endcomment -%}
     {%- endif -%}
 {%- comment -%}--------------- SE20240419 END  ---------------{%- endcomment -%}
-    
+
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -44,8 +44,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- KeyCRM online chat widget begin -->
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
-old    
+{%- comment -%}---------------- Error correct ----------------
+old
 <script type="text/javascript">
 new
 <script>
@@ -53,7 +53,7 @@ new
 
 <script>
 {%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}
-{%- unless request.design_mode -%} 
+{%- unless request.design_mode -%}
 var script_loaded=!1;
 function loadJSscripts(){
   if(!script_loaded){
@@ -63,22 +63,22 @@ function loadJSscripts(){
       var s=d.createElement(t),j=d.getElementsByTagName(t)[0];s.src=u;s["async"]=true;s.defer=true;s.onload=function(){KeyCRM.render(c);};j.parentNode.insertBefore(s,j)
     })(window, document, "script","https://chat.key.live/bundles/widget.min.js",{token:"b83fd079-c9ca-463e-86ab-ae228e407ef6"});
   }
-}  
+}
 window.addEventListener("scroll",function(e){loadJSscripts()}),
 window.addEventListener("mousemove",function(){loadJSscripts()}),
-window.addEventListener("touchstart",function(){loadJSscripts()}),    
+window.addEventListener("touchstart",function(){loadJSscripts()}),
 window.addEventListener
   ?window.addEventListener("load",function(){setTimeout(loadJSscripts,5000)},!1)
-  :window.attachEvent 
-    ?window.attachEvent("onload",function(){setTimeout(loadJSscripts,5000)})  
-    :window.onload=loadJSscripts 
-{% else %} 
+  :window.attachEvent
+    ?window.attachEvent("onload",function(){setTimeout(loadJSscripts,5000)})
+    :window.onload=loadJSscripts
+{% else %}
 (function(w,d,t,u,c){
   var s=d.createElement(t),j=d.getElementsByTagName(t)[0];s.src=u;s["async"]=true;s.defer=true;s.onload=function(){KeyCRM.render(c);};j.parentNode.insertBefore(s,j)
 })(window, document, "script","https://chat.key.live/bundles/widget.min.js",{token:"b83fd079-c9ca-463e-86ab-ae228e407ef6"});
 {% endunless %}
 </script>
-<!-- KeyCRM online chat widget end -->   
+<!-- KeyCRM online chat widget end -->
     <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
 
     {%- if page_description -%}
@@ -88,7 +88,7 @@ window.addEventListener
     {%- comment -%}--------------- SE20240814 END ----------------
     <link rel="canonical" href="{{ canonical_url }}">
     {%- endcomment -%}
-    
+
     {%- if settings.favicon -%}
       <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
       <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
@@ -121,26 +121,26 @@ window.addEventListener
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
 
 {%- comment -%}--------------- SE20240702 STR ----------------{%- endcomment -%}
-{%- comment -%}------------------ Admit AD -------------------{%- endcomment -%}       
+{%- comment -%}------------------ Admit AD -------------------{%- endcomment -%}
     <script src="https://www.artfut.com/static/tagtag.min.js?campaign_code=0031da7d16" onerror='var self = this;window.ADMITAD=window.ADMITAD||{},ADMITAD.Helpers=ADMITAD.Helpers||{},ADMITAD.Helpers.generateDomains=function(){for(var e=new Date,n=Math.floor(new Date(2020,e.getMonth(),e.getDate()).setUTCHours(0,0,0,0)/1e3),t=parseInt(1e12*(Math.sin(n)+1)).toString(30),i=["de"],o=[],a=0;a<i.length;++a)o.push({domain:t+"."+i[a],name:t});return o},ADMITAD.Helpers.findTodaysDomain=function(e){function n(){var o=new XMLHttpRequest,a=i[t].domain,D="https://"+a+"/";o.open("HEAD",D,!0),o.onload=function(){setTimeout(e,0,i[t])},o.onerror=function(){++t<i.length?setTimeout(n,0):setTimeout(e,0,void 0)},o.send()}var t=0,i=ADMITAD.Helpers.generateDomains();n()},window.ADMITAD=window.ADMITAD||{},ADMITAD.Helpers.findTodaysDomain(function(e){if(window.ADMITAD.dynamic=e,window.ADMITAD.dynamic){var n=function(){return function(){return self.src?self:""}}(),t=n(),i=(/campaign_code=([^&]+)/.exec(t.src)||[])[1]||"";t.parentNode.removeChild(t);var o=document.getElementsByTagName("head")[0],a=document.createElement("script");a.src="https://www."+window.ADMITAD.dynamic.domain+"/static/"+window.ADMITAD.dynamic.name.slice(1)+window.ADMITAD.dynamic.name.slice(0,1)+".min.js?campaign_code="+i,o.appendChild(a)}});'></script>
 {%- comment -%}--------------- SE20240702 END ----------------{%- endcomment -%}
-    
+
   </head>
 
 {%- comment -%}---------------- SE20240410 STR Anzhela ----------------{%- endcomment -%}
 {%- comment -%}---------------- search for mobile ----------------{%- endcomment -%}
-{%- comment -%} old version, before Anzhela  
+{%- comment -%} old version, before Anzhela
   <body class="{% if settings.show_page_transition %}page-transition{% endif %} {% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
 {%- endcomment -%}
   <body class="template-{{ template.name }} {% if settings.show_page_transition %}page-transition{% endif %} {% if settings.zoom_image_on_hover %}zoom-image--enabled{% endif %}">
 {%- comment -%}---------------- SE20240410 END Anzhela ----------------{%- endcomment -%}
 {%- comment -%}---------------- search for mobile ----------------{%- endcomment -%}
-    
+
  <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N226F9HC"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->   
-    
+<!-- End Google Tag Manager (noscript) -->
+
     {%- render 'shadow-dom-templates' -%}
     {%- render 'nova-poshta' -%}
     <a href="#main" class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
@@ -158,14 +158,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       {%- section 'account-banner' -%}
     {%- endif -%}
 {%- comment -%}--------------- SE20240519 STR ----------------{%- endcomment -%}
-{%- comment -%}---------------- Error correct ----------------      
+{%- comment -%}---------------- Error correct ----------------
       old
     <main role="main" id="main" class="anchor">
 new
     <main id="main" class="anchor">
 {%- endcomment -%}
-    <main id="main" class="anchor">  
-{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}       
+    <main id="main" class="anchor">
+{%- comment -%}--------------- SE20240519 END ----------------{%- endcomment -%}
       {{ content_for_layout }}
 
       {%- comment -%}
@@ -181,12 +181,14 @@ new
 
       <script>
         window.addEventListener("load", () => {
-          console.log(document.querySelector('.telegram-button'));
-          console.log(document.querySelector('.KeyCRM-toggleButton'));
           function t1() {
             document.querySelector('.telegram-button').classList.add('telegram-button-closed')
           }
-          document.querySelector('.KeyCRM-toggleButton').onclick = t1;
+          let keyCRMToggleButton = document.querySelector('.KeyCRM-toggleButton');
+          if(keyCRMToggleButton && t1){
+            document.querySelector('.KeyCRM-toggleButton').onclick = t1;
+          }
+
         });
       </script>
     </main>

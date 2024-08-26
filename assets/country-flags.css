@@ -1,6 +1,6 @@
 .country-flags {
-  background: -webkit-image-set(url("//movatex.com/cdn/shop/t/28/assets/country-flags.png?v=37230036826556269641707224434") 1x, url("//movatex.com/cdn/shop/t/28/assets/country-flags-2x.png?v=119388446682176363021707224434") 2x) no-repeat top left;
-  background: image-set(url("//movatex.com/cdn/shop/t/28/assets/country-flags.png?v=37230036826556269641707224434") 1x, url("//movatex.com/cdn/shop/t/28/assets/country-flags-2x.png?v=119388446682176363021707224434") 2x) no-repeat top left;
+  background: -webkit-image-set(url("//movatex.com/cdn/shop/t/41/assets/country-flags.png?v=37230036826556269641723807719") 1x, url("//movatex.com/cdn/shop/t/41/assets/country-flags-2x.png?v=119388446682176363021723807719") 2x) no-repeat top left;
+  background: image-set(url("//movatex.com/cdn/shop/t/41/assets/country-flags.png?v=37230036826556269641723807719") 1x, url("//movatex.com/cdn/shop/t/41/assets/country-flags-2x.png?v=119388446682176363021723807719") 2x) no-repeat top left;
   width: 20px;
   height: 20px;
   flex-shrink: 0;

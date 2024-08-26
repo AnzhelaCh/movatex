@@ -1,61 +1,5 @@
 {
   "sections": {
-    "slideshow_KrrWHk": {
-      "type": "slideshow",
-      "blocks": {
-        "image_f9W6qL": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/60_-2.png",
-            "mobile_image": "shopify:\/\/shop_images\/60_-2.png",
-            "content_max_width": 780,
-            "mobile_text_position": "place-self-center text-center",
-            "desktop_text_position": "sm:place-self-center sm:text-center",
-            "subheading": "Гарячі знижки літа",
-            "title": "60%",
-            "heading_tag": "h0",
-            "button_text": "",
-            "button_link": "shopify:\/\/collections\/promo_offers",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
-            "overlay_color": "#000000",
-            "overlay_opacity": 30,
-            "background": "",
-            "background_gradient": ""
-          }
-        }
-      },
-      "block_order": [
-        "image_f9W6qL"
-      ],
-      "settings": {
-        "full_width": true,
-        "allow_transparent_header": false,
-        "image_size": "auto",
-        "controls_type": "none",
-        "transition_type": "fade_with_text",
-        "autoplay": false,
-        "cycle_speed": 6,
-        "background": "#F2F2F2",
-        "background_gradient": ""
-      }
-    },
-    "custom_liquid_VRA7dq": {
-      "type": "custom-liquid",
-      "custom_css": [
-
-      ],
-      "settings": {
-        "full_width": true,
-        "remove_vertical_spacing": true,
-        "remove_horizontal_spacing": true,
-        "liquid": "<div class=\"divider\"><\/div>\n\n<style>\n.divider {\n    border-bottom: 4px solid white; \/* Adjust thickness and color *\/\n    margin: 0px 0; \/* Adjust spacing above and below the line *\/\n}\n<\/style>",
-        "background": "",
-        "background_gradient": "",
-        "text_color": ""
-      }
-    },
     "slideshow": {
       "type": "slideshow",
       "blocks": {
@@ -148,10 +92,10 @@
       "settings": {
         "collection": "knitwear",
         "products": [
-          "knit_fabric_futer_3-thread_diagonal_regular_450_g-m",
-          "knit_fabric_futer_3-thread_with_fleece_brush_regular_340_g-m",
-          "knit_fabric_single_jersey_silky_finish_30-2_hm_235",
-          "3-thread_diagonal_knit_french_terry_silk_finish"
+          "linen_air_voile_100",
+          "linen_rimini",
+          "cotton_twill",
+          "cotton-shirt"
         ],
         "full_width": true,
         "stack_products": true,
@@ -439,7 +383,6 @@
     },
     "08019757-b2b0-4f7e-9cad-97e2b3e665e9": {
       "type": "newsletter",
-      "disabled": true,
       "settings": {
         "full_width": true,
         "show_icon": true,
@@ -452,54 +395,6 @@
         "text_color": "",
         "button_background": "",
         "button_text_color": ""
-      }
-    },
-    "recently_viewed_products_q6ebW8": {
-      "type": "recently-viewed-products",
-      "settings": {
-        "full_width": true,
-        "products_count": 3,
-        "stack_products": true,
-        "show_progress_bar": true,
-        "products_per_row_mobile": "1",
-        "products_per_row_desktop": 3,
-        "subheading": "",
-        "title": "Нещодавно переглянуті товари",
-        "content": "",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
-      }
-    },
-    "featured_collection_HgAr3a": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "promo_offers",
-        "products": [
-
-        ],
-        "full_width": true,
-        "stack_products": true,
-        "show_progress_bar": false,
-        "products_count": 6,
-        "products_per_row_mobile": "2",
-        "products_per_row_desktop": 3,
-        "subheading": "",
-        "title": "Акційні пропозиції",
-        "content": "",
-        "link_url": "",
-        "link_text": "View all",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "product_card_background": "",
-        "product_card_text_color": ""
       }
     },
     "9aadf7ae-f903-4b50-b083-dadf7a5feabe": {
@@ -691,73 +586,18 @@
         "background_gradient": "",
         "text_color": ""
       }
-    },
-    "accordion_content_CczGDr": {
-      "type": "accordion-content",
-      "blocks": {
-        "item_tnBFCj": {
-          "type": "item",
-          "settings": {
-            "title": "Question 1",
-            "content": "<p>Write content to help your customers to better understand your products or policies.<\/p>"
-          }
-        },
-        "item_cXA3qt": {
-          "type": "item",
-          "settings": {
-            "title": "Question 2",
-            "content": "<p>Write content to help your customers to better understand your products or policies.<\/p>"
-          }
-        },
-        "item_MADUki": {
-          "type": "item",
-          "settings": {
-            "title": "Question 3",
-            "content": "<p>Write content to help your customers to better understand your products or policies.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_tnBFCj",
-        "item_cXA3qt",
-        "item_MADUki"
-      ],
-      "disabled": true,
-      "settings": {
-        "full_width": true,
-        "subheading": "",
-        "title": "Heading",
-        "content": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.<\/p>",
-        "button_text": "",
-        "button_url": "",
-        "text_position": "start",
-        "background": "",
-        "background_gradient": "",
-        "text_color": "",
-        "heading_color": "",
-        "heading_gradient": "",
-        "button_background": "",
-        "button_text_color": "",
-        "accordion_background": "",
-        "accordion_text_color": ""
-      }
     }
   },
   "order": [
-    "slideshow_KrrWHk",
-    "custom_liquid_VRA7dq",
     "slideshow",
     "featured_collection_bBGkFT",
     "collection-list",
     "23df1a5f-8985-4a14-8345-c964c3a120c4",
     "image-link-blocks",
     "08019757-b2b0-4f7e-9cad-97e2b3e665e9",
-    "recently_viewed_products_q6ebW8",
-    "featured_collection_HgAr3a",
     "9aadf7ae-f903-4b50-b083-dadf7a5feabe",
     "96b4c7f5-4110-4963-a9f4-459361f696b6",
     "custom_html_JnJPk7",
-    "rich_text_cAficQ",
-    "accordion_content_CczGDr"
+    "rich_text_cAficQ"
   ]
 }

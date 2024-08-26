@@ -1,0 +1,147 @@
+<script>
+    variantPickerPiece();
+    observeDomChanges();
+
+    function variantPickerPiece() {
+        const quantitySelector = document.querySelector('.js-quantity-selector-cut-inner #quantitySelectorPeaces');
+        let inputCountSelector = document.querySelector('.js-quantity-selector-cut-inner  .js-product-form__input-count');
+        const minimumCm = {{ product.metafields.custom.minimum_order_quantity }};
+        const cm = "{{ 'product.general.cm' | t }}";
+        const meter = "{{ 'product.general.m' | t }}";
+
+        if (inputCountSelector) {
+            inputCountSelector.addEventListener('input', function() {
+                this.value = this.value.replace(/^0+/, '');
+                let quantityValue = parseInt(this.value).toFixed();
+                let inputСentimeter = document.querySelector('.js-quantity-selector-cut-inner #quantitySelectorPeaces');
+                const quantityItem = document.querySelector('.js-quantity-selector__input');
+                const buttonList = document.querySelectorAll("button[type='submit']");
+                let productAmount = document.querySelectorAll(".js-productAmount");
+
+                if(this.value == "" || !this.value || parseInt(this.value) == 0){
+                    quantityItem.value = inputСentimeter.value;
+                    totalOrderText (productAmount, quantityItem);
+
+                    if(parseInt(quantityItem.value) < parseInt(minimumCm) || quantityItem.value == "" ){
+                        buttonList.forEach(el => el.setAttribute("disabled", "disabled"));
+                    }else {
+                        buttonList.forEach(el => el.removeAttribute("disabled"));
+                    }
+                }else {
+                    this.value = (Math.floor(parseInt(inputСentimeter.value) / 100)) + parseInt(quantityValue);
+                    inputСentimeter.value = parseInt(inputСentimeter.value) % 100;
+
+                    if(this.value == "" || !this.value){
+                        this.value = 0;
+                    }
+
+                    if(inputСentimeter.value == "" || !inputСentimeter.value){
+                        inputСentimeter.value = 0;
+                    }
+
+                    let centimeterItem = parseInt(inputСentimeter.value);
+                    if(centimeterItem % 10 !== 0){
+                        centimeterItem = centimeterItem - (centimeterItem % 10);
+                    }
+
+                    quantityItem.value = (parseInt(this.value) * 100) + centimeterItem;
+                    totalOrderText (productAmount, quantityItem);
+                    buttonList.forEach(el => el.removeAttribute("disabled"));
+                }
+            });
+        }
+
+        if (quantitySelector) {
+            quantitySelector.addEventListener('focus', function() {
+                if (this.value.startsWith('0')) {
+                    this.value = this.value.replace(/^0+/, '');
+                }
+            });
+
+            quantitySelector.addEventListener('input', function() {
+                let quantityValue = document.querySelector('.js-quantity-selector-cut-inner  .js-product-form__input-count');
+                let inputСentimeter = document.querySelector('.js-quantity-selector-cut-inner #quantitySelectorPeaces');
+                const quantityItem = document.querySelector('.js-quantity-selector__input');
+                const buttonList = document.querySelectorAll("button[type='submit']");
+                let productAmount = document.querySelectorAll(".js-productAmount");
+
+                if(quantityValue.value == "" || !quantityValue.value || parseInt(quantityValue.value) === 0){
+                    quantityValue.value = (Math.floor(parseInt(inputСentimeter.value) / 100)) + parseInt(quantityValue.value);
+                    if(parseInt(quantityValue.value) >= 1 && parseInt(inputСentimeter.value) >= 100){
+                        inputСentimeter.value = inputСentimeter.value % 100;
+                    }
+
+                    if(quantityValue.value == "" || !quantityValue.value){
+                        quantityValue.value = 0;
+                    }
+
+                    if(inputСentimeter.value == "" || !inputСentimeter.value){
+                        inputСentimeter.value = 0;
+                    }
+
+                    let centimeterItem = parseInt(inputСentimeter.value);
+                    if(centimeterItem % 10 !== 0){
+                        centimeterItem = centimeterItem - (centimeterItem % 10);
+                    }
+
+                    if(centimeterItem < 100){
+                        quantityItem.value = (parseInt(quantityValue.value) * 100) + centimeterItem;
+                        totalOrderText (productAmount, quantityItem);
+                    }else {
+                        quantityItem.value = centimeterItem;
+                        totalOrderText (productAmount, quantityItem);
+                    }
+
+                    if(quantityItem.value < parseInt(minimumCm)){
+                        buttonList.forEach(el => el.setAttribute("disabled", "disabled"));
+                    }else {
+                        buttonList.forEach(el => el.removeAttribute("disabled"));
+                    }
+                }else {
+                    if(inputСentimeter.value == ""){
+                        inputСentimeter.value = 0;
+                    }
+
+                    quantityValue.value = (Math.floor(parseInt(inputСentimeter.value) / 100)) + parseInt(quantityValue.value);
+                    totalOrderText (productAmount, quantityItem);
+                    inputСentimeter.value =  parseInt(inputСentimeter.value) % 100;
+
+                    let centimeterItem = parseInt(inputСentimeter.value);
+                    if(centimeterItem % 10 !== 0){
+                        centimeterItem = centimeterItem - (centimeterItem % 10);
+                    }
+
+                    quantityItem.value = (parseInt(quantityValue.value) * 100) + centimeterItem;
+                    totalOrderText (productAmount, quantityItem);
+                }
+            });
+        }
+
+        function totalOrderText (productAmount, quantityItem){
+            if(productAmount){
+                productAmount.forEach(el => {
+                    el.value = `${quantityItem.value}${cm} (${quantityItem.value / 100 }${meter})`;
+                });
+            }
+        }
+    }
+
+    function observeDomChanges() {
+        const targetNode = document.body;
+        const config = { childList: true, subtree: true };
+
+        const callback = function(mutationsList, observer) {
+            for (const mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    variantPickerPiece();
+                }
+            }
+        };
+
+        const observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+    }
+</script>
+{% if product.selected_or_first_available_variant.option2 == 'см на відріз' or product.selected_or_first_available_variant.option2 == 'cm per cut' or product.selected_or_first_available_variant.option2 == 'см на отрез' %}
+    {{ 'product-per-cut.css' | asset_url | stylesheet_tag }}
+{% endif %}

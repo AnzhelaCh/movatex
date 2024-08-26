@@ -18,6 +18,19 @@ Supported variables
 
 {%- assign badge_types = types | default: 'custom, sold_out, discount' | split: ',' -%}
 {%- assign variant = product.selected_or_first_available_variant -%}
+{% assign productPriceEl = variant.compare_at_price %}
+{% assign variantPrice = variant.price %}
+
+{% if variant.option2 == 'см на відріз' and product.metafields.custom.minimum_order_quantity != blank %}
+  {% assign variantPrice = variant.price | times: 100 %}
+  {% assign productPriceEl = variant.compare_at_price | times: 100 %}
+  {% elsif variant.option2 == 'cm per cut' and product.metafields.custom.minimum_order_quantity != blank %}
+  {% assign variantPrice = variant.price | times: 100 %}
+  {% assign productPriceEl = variant.compare_at_price | times: 100 %}
+{% elsif variant.option2 == 'см на отрез' and product.metafields.custom.minimum_order_quantity != blank %}
+  {% assign variantPrice = variant.price | times: 100 %}
+  {% assign productPriceEl = variant.compare_at_price | times: 100 %}
+{% endif %}
 
 {%- capture badges -%}
   {%- for badge_type in badge_types -%}
@@ -44,15 +57,18 @@ Supported variables
         {%- if settings.show_discount -%}
           {%- assign is_variant_on_sale = false -%}
 
-          {%- if variant.available and variant.compare_at_price > variant.price -%}
+          {%- if variant.available and productPriceEl > variantPrice -%}
             {%- assign is_variant_on_sale = true -%}
           {%- endif -%}
 
           {%- if form_id != blank or is_variant_on_sale -%}
             {%- if settings.discount_mode == 'percentage' -%}
-              {%- assign savings = variant.compare_at_price | minus: variant.price | times: 100.0 | divided_by: variant.compare_at_price | round | append: '%' -%}
+
+
+
+              {%- assign savings = productPriceEl | minus: variantPrice | times: 100.0 | divided_by: productPriceEl | round | append: '%' -%}
             {%- else -%}
-              {%- capture savings -%}{{ variant.compare_at_price | minus: variant.price | money }}{%- endcapture -%}
+              {%- capture savings -%}{{ productPriceEl | minus: variantPrice | money }}{%- endcapture -%}
             {%- endif -%}
 
             {%- comment -%}

@@ -212,7 +212,7 @@ height-observer, visibility-progress, scroll-area, video-media, model-media, med
   }
 }
 
-@media screen and (max-width: 450px) { 
+@media screen and (max-width: 450px) {
   .mobile-media-carousel {
     height: 450px;
   }
@@ -222,7 +222,7 @@ height-observer, visibility-progress, scroll-area, video-media, model-media, med
   }
 }
 
-@media screen and (max-width: 430px) { 
+@media screen and (max-width: 430px) {
   .mobile-media-carousel {
     height: 430px;
   }
@@ -2986,7 +2986,7 @@ model-media model-viewer, model-media .shopify-model-viewer-ui {
   width: 100%;
 }
 
-@media screen and (min-width: 700px) { 
+@media screen and (min-width: 700px) {
   .product-card__info form[sample] {
     margin-top: 5px;
   }
@@ -5166,11 +5166,9 @@ split-lines {
   position: relative;
 }
 
-{%- comment -%}------------------ SE20240822 SE был z-index: 1 (наползала распродажа на кнопку фильтра в моб версии){%- endcomment -%} 
-
 .facets__floating-filter {
   text-align: center;
-  z-index: 10;
+  z-index: 1;
   width: 100%;
   position: fixed;
   bottom: var(--spacing-8);
@@ -5993,7 +5991,7 @@ split-lines {
   align-items: center;
   gap: var(--header-part-gap);
   padding: var(--header-padding-block) max(var(--container-gutter), 50% - var(--container-max-width) / 2) 0px max(var(--container-gutter), 50% - var(--container-max-width) / 2);
-  /*! 
+  /*!
   padding: 15px 20px 15px 20px;
   */
   color: rgb(var(--text-color));
@@ -6011,7 +6009,7 @@ split-lines {
   z-index: -2;
   gap: var(--header-part-gap);
   padding: var(--header-padding-block) max(var(--container-gutter), 50% - var(--container-max-width) / 2);
-  /*! 
+  /*!
   padding: 0px 20px 15px 20px;
   padding: var(--header-padding-block) max(var(--container-gutter), 50% - var(--container-max-width) / 2);
   */
@@ -8754,7 +8752,7 @@ split-lines {
   gap: var(--spacing-8);
   text-align: var(--text-with-icons-text-align);
   justify-content: var(--text-with-icons-justify);
-  /*!   
+  /*!
   grid-template-columns: minmax(0, 1fr);
   */
   display: grid;
@@ -9075,7 +9073,7 @@ split-lines {
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .js [data-reveal-js], .js [data-reveal-on-scroll="true"] {    
+  .js [data-reveal-js], .js [data-reveal-on-scroll="true"] {
     opacity: 0;
   }
 }
@@ -10085,15 +10083,9 @@ split-lines {
   overflow: hidden;
 }
 
-
-
-{%- comment -%}---------------- SE20240410 STR Anzhela ----------------{%- endcomment -%}
-{%- comment -%}---------------- search for mobile ----------------{%- endcomment -%}
-
 .btn-sample:hover svg path {
     stroke: black;
 }
-                                                                   
 /*.product-quick-add__variant .btn-sample {
       display: none!important;
     }*/
@@ -10178,48 +10170,3 @@ form.main-search-form.search-form-mobile {
     }
 }
 
-{%- comment -%}---------------- SE20240410 END Anzhela ----------------{%- endcomment -%}
-
-                                                                        
-{%- comment -%}------------------ SE20240819 STR SE -------------------{%- endcomment -%} 
-{%- comment -%}---- Стили для текстового поля с кнопкой Развернуть ----{%- endcomment -%} 
-
-.contenttabs {
-  height: 0px;
-  overflow: hidden;
-}
-.contenttabs.auto-width {
-  height: auto;
-}
-
-.unhidedtabs {
-  
-}
-
-.unhidedtabs.contenttabs.auto-width {
-  height: auto;
-}
-                                                                        .
-.buttontabs{
-  font-weight: bold;
-  text-align: right;
-  justify-items: auto;
-  weight: 100px;
-  margin:left;
-}                                                                        
-.tabsbut {
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-.filter_button{
-  position: relative;
-
-}     
-
-.filter_button >*{    
-  width: auto;
-  border: 1px solid white;
-}
-                                                                        
-{%- comment -%}------------------ SE20240819 END SE -------------------{%- endcomment -%} 

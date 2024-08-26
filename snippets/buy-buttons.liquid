@@ -29,8 +29,24 @@ Supported variables
   {%- assign show_payment_button = false -%}
 {%- endif -%}
 
+{% if template.name == 'product' and product.metafields.custom.minimum_order_quantity != blank and product.selected_or_first_available_variant.option2 == 'см на відріз' %}
+<p class="order-quantity-message" style="padding-bottom: 10px;">
+  {{ 'product.general.minimum_quantity' | t: quantity: product.metafields.custom.minimum_order_quantity, step: 10 }}
+</p>
+    {% elsif template.name == 'product' and product.metafields.custom.minimum_order_quantity != blank and product.selected_or_first_available_variant.option2 == 'cm per cut' %}
+    <p class="order-quantity-message" style="padding-bottom: 10px;">
+        {{ 'product.general.minimum_quantity' | t: quantity: product.metafields.custom.minimum_order_quantity, step: 10 }}
+    </p>
+{% elsif template.name == 'product' and product.metafields.custom.minimum_order_quantity != blank and product.selected_or_first_available_variant.option2 == 'см на отрез' %}
+    <p class="order-quantity-message" style="padding-bottom: 10px;">
+        {{ 'product.general.minimum_quantity' | t: quantity: product.metafields.custom.minimum_order_quantity, step: 10 }}
+    </p>
+{% endif %}
 {%- form 'product', product, is: 'product-form', id: form_id -%}
   <input type="hidden" {% if variant_picker_block != blank %}disabled{% endif %} name="id" value="{{ product.selected_or_first_available_variant.id }}">
+ {% if product.selected_or_first_available_variant.option2 == 'см на відріз' or product.selected_or_first_available_variant.option2 == 'cm per cut' or product.selected_or_first_available_variant.option2 == 'см на отрез' %}
+   <input class="js-productAmount" type="hidden" name="properties[{{ 'product.general.order_count' | t }}]" value="{{ product.metafields.custom.minimum_order_quantity }}{{ 'product.general.cm' | t }}">
+ {% endif %}
 
   {%- assign button_disabled = false -%}
   {%- assign button_size = button_size | default: 'xl' -%}
@@ -97,9 +113,9 @@ Supported variables
       {%- endif -%}
     </buy-buttons>
 {%- comment -%}---------------- SE20240410 STR Anzhela ----------------{%- endcomment -%}
-{%- comment -%}---------------- Buy sample card ----------------{%- endcomment -%}    
+{%- comment -%}---------------- Buy sample card ----------------{%- endcomment -%}
       {% if product.metafields.custom.product_samples.value != blank and template.name == 'product' %}
-           
+
 
   <style>
     a.btn-sample {

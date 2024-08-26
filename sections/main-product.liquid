@@ -79,7 +79,7 @@
 
         <a href="{{ product.url }}" class="bold truncate-text">{{ product.title }}</a>
         {%- render 'price-list', product: product, variant: product.selected_or_first_available_variant, form_id: product_form_id -%}
-        
+
       </div>
 
       <buy-buttons template="{{ product.template_suffix }}" form="{{ product_form_id }}" force-secondary-button>
@@ -1265,3 +1265,5 @@ quick buy information in a template, that will be extracted in JS, but ensure it
   ]
 }
 {% endschema %}
+
+{% render 'js-product-per-cut', product: product %}

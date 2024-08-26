@@ -96,19 +96,9 @@
 
           {%- comment -%}We also need to render the button, that is floating on mobile{%- endcomment -%}
           {%- if show_filters -%}
-{%- comment -%}------------------ SE20240819 STR SE -------------------{%- endcomment -%} 
-{%- comment -%}---- Видоизменение кнопки "Фільтр і сортування" ----             
-            <facet-floating-filter class="facets__floating-filter md:hidden">
-              {%- assign filter_label = 'collection.faceting.filter_and_sort' | t -%}              {%- render 'button', size: 'xl', content: filter_label, icon: 'filter', style: 'fill', background: settings.text_color, text_color: settings.background, aria_controls: 'facets-drawer' -%}
-              {%- endcomment -%} 
             <facet-floating-filter class="facets__floating-filter md:hidden">
               {%- assign filter_label = 'collection.faceting.filter_and_sort' | t -%}
- 
-              <div class="filter_button">
-                {%- render 'button', size: 'xl', content: filter_label, icon: 'filter', style: 'fill', background: settings.text_color, text_color: settings.background, aria_controls: 'facets-drawer' -%}
-              </div>
-              
-{%- comment -%}------------------ SE20240822 END SE -------------------{%- endcomment -%} 
+              {%- render 'button', size: 'xl', content: filter_label, icon: 'filter', style: 'fill', background: settings.text_color, text_color: settings.background, aria_controls: 'facets-drawer' -%}
             </facet-floating-filter>
           {%- endif -%}
         {%- endif -%}
